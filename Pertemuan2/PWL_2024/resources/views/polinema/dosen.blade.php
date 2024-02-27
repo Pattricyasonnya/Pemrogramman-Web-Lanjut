@@ -6,7 +6,13 @@
         <title>PWL 2024</title>
     </head>
     <body>
-        <h2>Pemrogramman Web Lanjut 2024</h2>
-        <h3>Semangat Belajar Laravel 10</h3>
+        <h1>Daftar Dosen</h1>
+        <ol>
+        <li><?php echo $dosen[0];?></li>
+        <li><?php echo $dosen[1];?></li>
+        <li><?php echo $dosen[2];?></li>
+        <li><?php echo $dosen[3];?></li>
+        <li><?php echo $dosen[4];?></li>
+        </ol>
     </body>
 </html>

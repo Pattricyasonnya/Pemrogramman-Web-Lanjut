@@ -6,7 +6,13 @@
         <title>PWL 2024</title>
     </head>
     <body>
-        <h2>Pemrogramman Web Lanjut 2024</h2>
-        <h3>Semangat Belajar Laravel 10</h3>
+        <h1>Daftar Mahasiswa</h1>
+        <ol>
+            <?php
+            foreach ($mahasiswa as $nama) {
+                echo "<li> $nama </li>";
+            }
+        ?>
+        </ol>
     </body>
 </html>
