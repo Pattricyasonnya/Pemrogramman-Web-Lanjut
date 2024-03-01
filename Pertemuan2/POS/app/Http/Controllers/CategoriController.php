@@ -7,7 +7,11 @@ use Illuminate\Http\Request;
 class CategoriController extends Controller
 {
     public function products(){
-        return view('Products');
+        return 'Berbagai macam produk yang tersedia yaitu : 
+        <br>1. Food Beverage
+        <br>2. Baby Kid
+        <br>3. Beauty Health
+        <br>4. Home Care';
     }
 
     public function food_beverage(){
