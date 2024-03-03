@@ -2,8 +2,10 @@
 
 use App\Http\Controllers\CategoriController;
 use App\Http\Controllers\HomeController;
+use App\Http\Controllers\LevelController;
 use App\Http\Controllers\PenjualanController;
 use App\Http\Controllers\UserController;
+use Database\Seeders\LevelSeeder;
 use Illuminate\Support\Facades\Route;
 use PhpParser\Node\Stmt\Catch_;
 
@@ -37,3 +39,8 @@ Route::get('/products', [CategoriController::class, 'products']);
 Route::get('/user/{id}/name/{name}', [UserController::class, 'user']);
 
 Route::get('/penjualan', [PenjualanController::class, 'penjualan']);
+
+
+//Pertemuan 3
+
+Route::get('/level', [LevelController::class, 'index']);
