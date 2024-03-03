@@ -2,6 +2,7 @@
 
 use App\Http\Controllers\CategoriController;
 use App\Http\Controllers\HomeController;
+use App\Http\Controllers\KategoriController;
 use App\Http\Controllers\LevelController;
 use App\Http\Controllers\PenjualanController;
 use App\Http\Controllers\UserController;
@@ -42,5 +43,7 @@ Route::get('/penjualan', [PenjualanController::class, 'penjualan']);
 
 
 //Pertemuan 3
-
 Route::get('/level', [LevelController::class, 'index']);
+Route::get('/kategori', [KategoriController::class, 'index']);
+
+Route::get('/user', [UserController::class, 'index']);
