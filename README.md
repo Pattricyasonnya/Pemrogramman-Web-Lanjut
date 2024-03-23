@@ -1,6 +1,6 @@
 PERTEMUAN 4 - ELOQUENT ORM
+<br>
 PRAKTIKUM 1 - $fillable
-
 ![image](https://github.com/Pattricyasonnya/Pemrogramman-Web-Lanjut/assets/143475853/df709944-7b90-4726-8bf3-af948366eb99)
 
 ![image](https://github.com/Pattricyasonnya/Pemrogramman-Web-Lanjut/assets/143475853/798c2984-f0db-4d67-a08a-daed1f926e68)
