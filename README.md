@@ -1,5 +1,5 @@
 PERTEMUAN 4 - ELOQUENT ORM
-<br>
+
 PRAKTIKUM 1 - $fillable
 ![image](https://github.com/Pattricyasonnya/Pemrogramman-Web-Lanjut/assets/143475853/df709944-7b90-4726-8bf3-af948366eb99)
 
@@ -65,3 +65,44 @@ PRAKTIKUM 2.6 Create, Read, Update, Delete (CRUD)
 PRAKTIKUM 2.7 Relationships
 ![image](https://github.com/Pattricyasonnya/Pemrogramman-Web-Lanjut/assets/143475853/6c98c0bb-789b-4b82-917b-bfaa30d1bfcb)
 ![image](https://github.com/Pattricyasonnya/Pemrogramman-Web-Lanjut/assets/143475853/54d90ba3-064a-4eea-ac97-7e9de23035a2)
+<br>
+<br>
+PERTEMUAN 5 - Blade View, Web Templating(AdminLTE), Datatables
+
+Praktikum 1 – Integrasi Laravel dengan AdminLte3
+
+![image](https://github.com/Pattricyasonnya/Pemrogramman-Web-Lanjut/assets/143475853/8a86f4c4-91a5-4bda-a5b3-5e7368d174e4)
+
+![image](https://github.com/Pattricyasonnya/Pemrogramman-Web-Lanjut/assets/143475853/0b718689-4db5-4d85-a8bf-8ecb57854e9e)
+
+![image](https://github.com/Pattricyasonnya/Pemrogramman-Web-Lanjut/assets/143475853/a7faf450-c5b7-4e39-ab6e-264c470f36dc)
+
+![image](https://github.com/Pattricyasonnya/Pemrogramman-Web-Lanjut/assets/143475853/f7288a9e-9f2c-4fe4-a6c6-9864d876a97a)
+
+![image](https://github.com/Pattricyasonnya/Pemrogramman-Web-Lanjut/assets/143475853/5a83676e-6891-4ce5-9e04-bceb0b952dc2)
+
+![image](https://github.com/Pattricyasonnya/Pemrogramman-Web-Lanjut/assets/143475853/c916cc88-64ff-48ae-9522-d24cedabd56d)
+
+![image](https://github.com/Pattricyasonnya/Pemrogramman-Web-Lanjut/assets/143475853/6c905ddf-9ad7-48bd-967f-324cbc930d52)
+
+![image](https://github.com/Pattricyasonnya/Pemrogramman-Web-Lanjut/assets/143475853/2317d656-fe5a-4bcb-bc88-4ac20af6f65c)
+
+![image](https://github.com/Pattricyasonnya/Pemrogramman-Web-Lanjut/assets/143475853/44915d88-1137-4df9-9bed-ef76db03c521)
+
+![image](https://github.com/Pattricyasonnya/Pemrogramman-Web-Lanjut/assets/143475853/ce68d4bf-57e6-48f2-99d2-ca8e672845a8)
+
+![image](https://github.com/Pattricyasonnya/Pemrogramman-Web-Lanjut/assets/143475853/2fb595f2-5389-43bc-9dfd-bda52e429faf)
+
+![image](https://github.com/Pattricyasonnya/Pemrogramman-Web-Lanjut/assets/143475853/b9e91e99-34b3-4752-9238-785b1a07b82e)
+
+![image](https://github.com/Pattricyasonnya/Pemrogramman-Web-Lanjut/assets/143475853/46b7b3b9-089b-4550-a7ad-f81a62e1a750)
+
+![image](https://github.com/Pattricyasonnya/Pemrogramman-Web-Lanjut/assets/143475853/88f43c91-9a0a-4341-beb9-62b6dd8c9767)
+
+Praktikum 3 – Membuat form kemudian menyimpan data dalam database
+
+![image](https://github.com/Pattricyasonnya/Pemrogramman-Web-Lanjut/assets/143475853/bedc0b25-92d1-4695-b30b-fa01b2814fbd)
+
+![image](https://github.com/Pattricyasonnya/Pemrogramman-Web-Lanjut/assets/143475853/27f6417c-0749-469e-9176-8582269e72d3)
+
+![image](https://github.com/Pattricyasonnya/Pemrogramman-Web-Lanjut/assets/143475853/0c946552-b7c9-4271-9b7f-70bb5195fcdd)
