@@ -1,6 +1,7 @@
 PERTEMUAN 4 - ELOQUENT ORM
 
 PRAKTIKUM 1 - $fillable
+
 ![image](https://github.com/Pattricyasonnya/Pemrogramman-Web-Lanjut/assets/143475853/df709944-7b90-4726-8bf3-af948366eb99)
 
 ![image](https://github.com/Pattricyasonnya/Pemrogramman-Web-Lanjut/assets/143475853/798c2984-f0db-4d67-a08a-daed1f926e68)
@@ -62,7 +63,9 @@ PRAKTIKUM 2.6 Create, Read, Update, Delete (CRUD)
 
 ![image](https://github.com/Pattricyasonnya/Pemrogramman-Web-Lanjut/assets/143475853/62a5e6a1-ddc5-4c78-bae5-66abdfdd83c4)
 ![image](https://github.com/Pattricyasonnya/Pemrogramman-Web-Lanjut/assets/143475853/e664cdae-47e9-47fb-bb8b-418671d7cdc2)
+
 PRAKTIKUM 2.7 Relationships
+
 ![image](https://github.com/Pattricyasonnya/Pemrogramman-Web-Lanjut/assets/143475853/6c98c0bb-789b-4b82-917b-bfaa30d1bfcb)
 ![image](https://github.com/Pattricyasonnya/Pemrogramman-Web-Lanjut/assets/143475853/54d90ba3-064a-4eea-ac97-7e9de23035a2)
 <br>
@@ -84,6 +87,8 @@ Praktikum 1 – Integrasi Laravel dengan AdminLte3
 ![image](https://github.com/Pattricyasonnya/Pemrogramman-Web-Lanjut/assets/143475853/c916cc88-64ff-48ae-9522-d24cedabd56d)
 
 ![image](https://github.com/Pattricyasonnya/Pemrogramman-Web-Lanjut/assets/143475853/6c905ddf-9ad7-48bd-967f-324cbc930d52)
+
+Praktikum 2 – Integrasi dengan DataTables
 
 ![image](https://github.com/Pattricyasonnya/Pemrogramman-Web-Lanjut/assets/143475853/2317d656-fe5a-4bcb-bc88-4ac20af6f65c)
 
