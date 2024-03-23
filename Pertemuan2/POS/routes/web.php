@@ -29,13 +29,13 @@ Route::get('/home', [HomeController::class, 'home']);
 
 
 //Route::prefix('products')->group(function(){
-    Route::get('/category/food-beverage', [CategoriController::class, 'food_beverage']);
-    Route::get('/category/beauty-health', [CategoriController::class, 'beauty_health']);
-    Route::get('/category/home-care', [CategoriController::class, 'home_care']);
-    Route::get('/category/baby-kid', [CategoriController::class, 'baby_kid']);
+    Route::get('/category/food-beverage', [KategoriController::class, 'food_beverage']);
+    Route::get('/category/beauty-health', [KategoriController::class, 'beauty_health']);
+    Route::get('/category/home-care', [KategoriController::class, 'home_care']);
+    Route::get('/category/baby-kid', [KategoriController::class, 'baby_kid']);
 //});
 
-Route::get('/products', [CategoriController::class, 'products']);
+Route::get('/products', [KategoriController::class, 'products']);
 
 Route::get('/user/{id}/name/{name}', [UserController::class, 'user']);
 
@@ -44,7 +44,7 @@ Route::get('/penjualan', [PenjualanController::class, 'penjualan']);
 
 //Pertemuan 3
 Route::get('/level', [LevelController::class, 'index']);
-Route::get('/kategori', [KategoriController::class, 'index']);
+//Route::get('/kategori', [KategoriController::class, 'index']);
 
 Route::get('/user', [UserController::class, 'index']);
 
@@ -57,3 +57,8 @@ Route::get('/user/ubah/{id}', [UserController::class, 'ubah']);
 Route::put('/user/ubah_simpan/{id}', [UserController::class, 'ubah_simpan']);
 
 Route::get('/user/hapus/{id}', [UserController::class, 'hapus']);
+
+//PERTEMUAN 5
+Route::get('/kategori', [KategoriController::class, 'index']);
+Route::get('/kategori/create', [KategoriController::class, 'create']);
+Route::post('/kategori', [KategoriController:: class, 'store']);
