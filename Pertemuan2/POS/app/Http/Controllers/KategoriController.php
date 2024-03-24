@@ -26,6 +26,11 @@ class KategoriController extends Controller
         return redirect('/kategori');
     }
 
+    public function edit($kode){
+        $kategori=KategoriModel::find($kode);
+        return view('edit', ['data' => $kategori]);
+    }
+
     /*public function index(){
         /*$data = [
             'kategori_kode' => 'SNK',

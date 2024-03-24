@@ -61,4 +61,5 @@ Route::get('/user/hapus/{id}', [UserController::class, 'hapus']);
 //PERTEMUAN 5
 Route::get('/kategori', [KategoriController::class, 'index']);
 Route::get('/kategori/create', [KategoriController::class, 'create']);
+Route::get('/kategori/edit', [KategoriController::class, 'edit']);
 Route::post('/kategori', [KategoriController:: class, 'store']);

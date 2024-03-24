@@ -10,6 +10,13 @@
 <div class="container">
     <div class="card">
         <div class="card-header">Manage Kategori</div>
+            <div class="card-header">
+                <a href="/kategori/create/">
+                <button class="btn btn-primary" href="">Add
+                </button>
+                </a>
+                </div>
+        </div>
         <div class="card-body">
             {{$dataTable->table()}}
         </div>
