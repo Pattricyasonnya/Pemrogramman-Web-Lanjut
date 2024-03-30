@@ -18,17 +18,30 @@ class KategoriController extends Controller
     }
 
     public function store(Request $request){
-        KategoriModel::create(
-        [
-        'kategori_kode'=> $request->kodeKategori,
-        'kategori_nama' => $request->namaKategori,
+        KategoriModel::create([
+            'kategori_kode' => $request->kodeKategori,
+            'kategori_nama' => $request->namaKategori,
         ]);
         return redirect('/kategori');
     }
 
-    public function edit($kode){
-        $kategori=KategoriModel::find($kode);
-        return view('edit', ['data' => $kategori]);
+    public function edit($id){
+        $kategori = KategoriModel::find('kategori_id', $id);
+        return view('category.edit', ['data' => $kategori]);
+    }
+
+    public function update(Request $request, $id){
+        $kategori=KategoriModel::find($id);
+        $kategori->update($request->all());
+
+        return redirect('/kategori');
+    }
+
+    public function delete($id){
+        $kategori = KategoriModel::find($id);
+        $kategori->delete();
+
+        return redirect('/kategori');
     }
 
     /*public function index(){

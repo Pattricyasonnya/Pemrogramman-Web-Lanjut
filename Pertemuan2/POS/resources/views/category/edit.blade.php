@@ -1,9 +1,12 @@
 @extends('layout.app')
 {{-- Customize layout sections --}}
+
 @section('subtitle', 'Kategori')    
 @section('content_header_title', 'Kategori')
 @section('content_header_subtitle', 'Edit')
+
 {{-- Content body::main page content --}}
+
 @section('content')
     <div class="container">
         <div class="card card-primary">
@@ -11,7 +14,9 @@
             <h3 class="card-title">Edit kategori</h3>
             </div>  
 
-            <form method="post" action="../kategori">
+            <form method="POST" action="/kategori/edit/{{$kategori->kategori_id}}">
+                @csrf
+
                 <div class="card-body">
                     <div class="form-group">
                         <label for="kodeKategori">Kode Kategori</label>
