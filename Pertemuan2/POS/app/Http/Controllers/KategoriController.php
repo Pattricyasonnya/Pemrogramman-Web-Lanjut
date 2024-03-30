@@ -26,7 +26,7 @@ class KategoriController extends Controller
     }
 
     public function edit($id){
-        $kategori = KategoriModel::find('kategori_id', $id);
+        $kategori = KategoriModel::find($id);
         return view('category.edit', ['data' => $kategori]);
     }
 

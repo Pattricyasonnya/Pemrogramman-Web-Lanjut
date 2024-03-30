@@ -14,17 +14,17 @@
             <h3 class="card-title">Edit kategori</h3>
             </div>  
 
-            <form method="POST" action="/kategori/edit/{{$kategori->kategori_id}}">
+            <form method="post" action="/kategori/update/{{$data->kategori_id}}">
                 @csrf
 
                 <div class="card-body">
                     <div class="form-group">
                         <label for="kodeKategori">Kode Kategori</label>
-                        <input type="text" class="form-control" id="kodeKategori" name="kodeKategori" placeholder="untuk makanan, contoh: MKN">
+                        <input type="text" class="form-control" id="kodeKategori" name="kategori_kode" placeholder="untuk makanan, contoh: MKN">
                     </div>
                     <div class="form-group">    
                         <label for="namaKategori">Nama Kategori</label>
-                        <input type="text" class="form-control" id="namaKategori" name="namaKategori" placeholder="Nama">       
+                        <input type="text" class="form-control" id="namaKategori" name="kategori_nama" placeholder="Nama">       
                     </div>
                 </div>
 
