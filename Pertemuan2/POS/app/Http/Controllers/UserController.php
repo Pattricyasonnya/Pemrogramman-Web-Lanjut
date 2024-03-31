@@ -9,16 +9,28 @@ use Psy\TabCompletion\Matcher\FunctionsMatcher;
 
 class UserController extends Controller
 {
-    public function index(){
+    /*public function index(){
         $user = UserModel::with('level')->get();
         return view('user', ['data' => $user]);
-    }
-    /*public function index(){
-        $user = UserModel::all();
-        return view('user', ['data' => $user]);
     }*/
+    public function index(){
+        $user = UserModel::all();
+        return view('user.index', ['data' => $user]);
+    }
 
-    public function tambah(){
+    public function create(){
+        return view('level.create_user');
+    }
+
+    public function store(Request $request){
+        UserModel::create([
+            'username' => $request->username,
+            'level_nama' => $request->namaLevel,
+        ]);
+        return redirect('/user');
+    }
+
+    /*public function tambah(){
         return view('user_tambah');
     }
 

@@ -21,7 +21,7 @@ use PhpParser\Node\Stmt\Catch_;
 |
 */
 
-Route::get('/', function () {
+/*Route::get('/', function () {
     return view('welcome');
 });
 
@@ -56,7 +56,7 @@ Route::get('/user/ubah/{id}', [UserController::class, 'ubah']);
 
 Route::put('/user/ubah_simpan/{id}', [UserController::class, 'ubah_simpan']);
 
-Route::get('/user/hapus/{id}', [UserController::class, 'hapus']);
+Route::get('/user/hapus/{id}', [UserController::class, 'hapus']);*/
 
 //PERTEMUAN 5
 Route::get('/kategori', [KategoriController::class, 'index']);
@@ -67,3 +67,12 @@ Route::get('/kategori/edit/{id}', [KategoriController::class, 'edit']);
 Route::post('/kategori/update/{id}', [KategoriController::class, 'update']);
 
 Route::get('/kategori/delete/{id}', [KategoriController::class, 'delete']);
+
+//PERTEMUAN 6
+Route::get('/level', [LevelController::class, 'index']);
+Route::get('/level/create_level', [LevelController::class, 'create']);
+Route::post('/level', [LevelController:: class, 'store']);
+
+Route::get('/user', [UserController::class, 'index']);
+Route::get('/user/create_user', [UserController::class, 'create']);
+Route::post('/user', [UserController:: class, 'store']);
