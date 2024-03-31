@@ -1,17 +1,17 @@
 @extends('layout.app')
 {{-- Customize layout sections --}}
-@section('subtitle', 'Level')    
-@section('content_header_title', 'Level')
+@section('subtitle', 'User')    
+@section('content_header_title', 'User')
 @section('content_header_subtitle', 'Create')
 {{-- Content body::main page content --}}
 @section('content')
     <div class="container">
         <div class="card card-primary">
             <div class="card-header">
-            <h3 class="card-title">Buat level baru</h3>
+            <h3 class="card-title">Buat user baru</h3>
             </div>  
 
-            <form method="post" action="/level">
+            <form method="post" action="/user">
               @csrf
                 <div class="card-body">
                     <div class="form-group">

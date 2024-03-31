@@ -3,6 +3,8 @@
 namespace App\Http\Controllers;
 
 use App\Models\LevelModel;
+use Illuminate\Contracts\View\View;
+use Illuminate\Http\RedirectResponse;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
 use Monolog\Level;
@@ -15,8 +17,41 @@ class LevelController extends Controller
 
         return view('level.index', ['data' => $data]);
     }
+
+    public function create(): View
+    {
+        return view('level.create_level');
+    }
+
+    public function store(Request $request) : RedirectResponse {
+        $validate = $request->validate([
+            'kodeLevel' => 'required',
+            'namaLevel' => 'required',
+        ]);
+
+        $request->validate([
+            'title'=> 'bail|required|unique:posts|max:255',
+            'body'=> 'required',
+        ]);
+
+        /*$validateData = $request->validate([
+            'title' => ['required', 'unique:posts', 'max:255'],
+            'body' => ['required'],
+        ]);*/
+
+        /*$validateData = $request->validateWithBag('post', [
+            'title' => ['required', 'unique:posts', 'max:255'],
+            'body' => ['required'],
+        ]);*/
+
+        LevelModel::create([
+            'level_kode' => $request->kodeLevel,
+            'level_nama' => $request->namaLevel,
+        ]);
+        return redirect('/level');
+    }
     
-    public function create(){
+    /*public function create(){
         return view('level.create_level');
     }
 
@@ -26,7 +61,7 @@ class LevelController extends Controller
             'level_nama' => $request->namaLevel,
         ]);
         return redirect('/level');
-    }
+    }*/
 
 
 
