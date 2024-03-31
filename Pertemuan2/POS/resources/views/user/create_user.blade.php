@@ -15,8 +15,8 @@
               @csrf
                 <div class="card-body">
                     <div class="form-group">
-                        <label for="kodeLevel">Kode level</label>
-                        <input type="text" class="form-control" id="kodeLevel" name="kodeLevel" placeholder="untuk kasir, contoh: MKN">
+                        <label for="username">Username</label>
+                        <input type="text" class="form-control" id="username" name="username" placeholder="username">
                     </div>
                     <div class="form-group">    
                         <label for="namaLevel">Nama Level</label>

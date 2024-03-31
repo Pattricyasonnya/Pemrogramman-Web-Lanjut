@@ -21,14 +21,14 @@ use PhpParser\Node\Stmt\Catch_;
 |
 */
 
-/*Route::get('/', function () {
+Route::get('/', function () {
     return view('welcome');
 });
 
 Route::get('/home', [HomeController::class, 'home']);
 
 
-//Route::prefix('products')->group(function(){
+/*//Route::prefix('products')->group(function(){
     Route::get('/category/food-beverage', [KategoriController::class, 'food_beverage']);
     Route::get('/category/beauty-health', [KategoriController::class, 'beauty_health']);
     Route::get('/category/home-care', [KategoriController::class, 'home_care']);

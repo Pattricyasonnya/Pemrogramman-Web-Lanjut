@@ -29,21 +29,4 @@ class StorePostRequest extends FormRequest
                 'namaKategori' => 'required',
         ];
     }
-
-    public function store(StorePostRequest $request): RedirectResponse{
-        
-        // The incoming request is valid 
-
-        //Retrive the validated input data 
-        $validated = $request->validate();
-
-        //Retrive a portion of the validated input data 
-        $validated = $request->safe()->only(['kodeKategori', 'namaKategori']);
-        $validated = $request->safe()->except(['kodeKategori', 'namaKategori']);
-
-        // store the post
-
-        return redirect('/kategori');
-
-    }
 }

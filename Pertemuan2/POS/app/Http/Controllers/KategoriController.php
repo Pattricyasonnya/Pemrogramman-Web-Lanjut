@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\DataTables\KategoriDataTable;
+use App\Http\Requests\StorePostRequest;
 use App\Models\KategoriModel;
 use Illuminate\Contracts\View\View;
 use Illuminate\Http\RedirectResponse;
@@ -17,33 +18,52 @@ class KategoriController extends Controller
         return view('category.create');
     }
 
-    public function store(Request $request) : RedirectResponse {
+    public function store(StorePostRequest $request): RedirectResponse{
+        
+        // The incoming request is valid 
+
+        //Retrive the validated input data 
+
+        $validated = $request->validate();
+
+        //Retrive a portion of the validated input data 
+        $validated = $request->safe()->only(['kodeKategori', 'namaKategori']);
+        $validated = $request->safe()->except(['kodeKategori', 'namaKategori']);
+
+        // store the post
+
+        return redirect('/kategori');
+
+    }
+
+    /*public function store(Request $request) : RedirectResponse {
         $validate = $request->validate([
             'kodeKategori' => 'required',
             'namaKategori' => 'required',
         ]);
 
+        //DISESUAIKAN DENGAN YANG TERSEDIA, DI CREATE KATEGORI TIDAK ADA TITLE DAN BODY ADANYA NAMA DAN KODE
         $request->validate([
             'title'=> 'bail|required|unique:posts|max:255',
             'body'=> 'required',
         ]);
 
-        /*$validateData = $request->validate([
+        $validateData = $request->validate([
             'title' => ['required', 'unique:posts', 'max:255'],
             'body' => ['required'],
-        ]);*/
+        ]);
 
-        /*$validateData = $request->validateWithBag('post', [
+        $validateData = $request->validateWithBag('post', [
             'title' => ['required', 'unique:posts', 'max:255'],
             'body' => ['required'],
-        ]);*/
+        ]);
 
         KategoriModel::create([
             'kategori_kode' => $request->kodeKategori,
             'kategori_nama' => $request->namaKategori,
         ]);
         return redirect('/kategori');
-    }
+    }*/
 
 
 
