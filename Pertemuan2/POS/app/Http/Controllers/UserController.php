@@ -2,7 +2,10 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\User;
 use App\Models\UserModel;
+use Illuminate\Contracts\View\View;
+use Illuminate\Http\RedirectResponse;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Hash;
 use Psy\TabCompletion\Matcher\FunctionsMatcher;
@@ -18,17 +21,58 @@ class UserController extends Controller
         return view('user.index', ['data' => $user]);
     }
 
-    public function create(){
+    public function create(): View
+    {
         return view('level.create_user');
     }
 
+    public function store(Request $request) : RedirectResponse {
+        $validate = $request->validate([
+            'username' => 'required',
+            'namaLevel' => 'required',
+        ]);
+
+        $request->validate([
+            'title'=> 'bail|required|unique:posts|max:255',
+            'body'=> 'required',
+        ]);
+
+        /*$validateData = $request->validate([
+            'title' => ['required', 'unique:posts', 'max:255'],
+            'body' => ['required'],
+        ]);*/
+
+        /*$validateData = $request->validateWithBag('post', [
+            'title' => ['required', 'unique:posts', 'max:255'],
+            'body' => ['required'],
+        ]);*/
+
+        UserModel::create([
+            'level_kode' => $request->kodeLevel,
+            'level_nama' => $request->namaLevel,
+        ]);
+        return redirect('/user');
+    }
+    
+    /*public function create(){
+        return view('level.create_level');
+    }
+
     public function store(Request $request){
+        LevelModel::create([
+            'level_kode' => $request->kodeLevel,
+            'level_nama' => $request->namaLevel,
+        ]);
+        return redirect('/level');
+    }*/
+
+    /*public function store(Request $request){
         UserModel::create([
             'username' => $request->username,
             'level_nama' => $request->namaLevel,
         ]);
         return redirect('/user');
-    }
+    }*/
 
     /*public function tambah(){
         return view('user_tambah');
