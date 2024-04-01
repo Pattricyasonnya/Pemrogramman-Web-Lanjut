@@ -7,6 +7,7 @@ use App\Http\Controllers\LevelController;
 use App\Http\Controllers\PenjualanController;
 use App\Http\Controllers\POSController;
 use App\Http\Controllers\UserController;
+use App\Http\Controllers\WelcomeController;
 use Database\Seeders\LevelSeeder;
 use Illuminate\Support\Facades\Route;
 use PhpParser\Node\Stmt\Catch_;
@@ -79,3 +80,6 @@ Route::get('/user/create_user', [UserController::class, 'create']);
 Route::post('/user', [UserController:: class, 'store']);
 
 Route::resource('m_user', POSController::class);
+
+//PERTEMUAN 7
+Route::get('/', [WelcomeController::class, 'index']);
