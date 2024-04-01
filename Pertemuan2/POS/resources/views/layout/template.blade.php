@@ -60,14 +60,14 @@
 <!-- jQuery -->
 <script src="{{ asset('adminlte//plugins/jquery/jquery.min.js') }}"></script>
 <!-- Bootstrap 4 -->
-<script src="{{ asset('adinlte/plugins/bootstrap/js/bootstrap.bundle.min.js') }}"></script>
+<script src="{{ asset('adminlte/plugins/bootstrap/js/bootstrap.bundle.min.js') }}"></script>
 <!-- DataTables & Plugins -->
 <script src="{{ asset('adminlte/plugins/datatables/jquery.dataTables.min.js')}}"></script>
 <script src="{{ asset('adminlte/plugins/datatables-bs4/js/dataTables.bootstrap4.min.js')}}"></script>
 <script src="{{ asset('adminlte/plugins/datatables-responsive/js/dataTables.responsive.min.js')}}"></script>
 <script src="{{ asset('adminlte/plugins/datatables-responsive/js/responsive.bootstrap4.min.js')}}"></script>
-<script src="{{ asset('adminlte/plugins/datatables-buttons/js/dataTables.buutons.min.js')}}"></script>
-<script src="{{ asset('adminlte/plugins/datatables-buttons/js/buttons.bootstrap4.min..js')}}"></script>
+<script src="{{ asset('adminlte/plugins/datatables-buttons/js/dataTables.buttons.min.js')}}"></script>
+<script src="{{ asset('adminlte/plugins/datatables-buttons/js/buttons.bootstrap4.min.js')}}"></script>
 <script src="{{ asset('adminlte/plugins/jszip/jszip.min.js')}}"></script>
 <script src="{{ asset('adminlte/plugins/pdfmake/pdfmake.min.js')}}"></script>
 <script src="{{ asset('adminlte/plugins/pdfmake/vfs_fonts.js')}}"></script>
@@ -78,7 +78,7 @@
 <script src="{{ asset('adminlte/dist/js/adminlte.min.js') }}"></script>
 <script>
   //Untuk mengirim token Laravel CSRF pada setiap request ajax
-  $.ajaxSetup({header: {'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')}});
+  $.ajaxSetup({headers: {'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')}});
 </script>
 @stack('js') <!-- digunakan untuk memanggil custom js dari perintah push('js') pada masing-masing view -->
 </body>
