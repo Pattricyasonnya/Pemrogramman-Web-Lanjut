@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\BarangController;
 use App\Http\Controllers\CategoriController;
 use App\Http\Controllers\HomeController;
 use App\Http\Controllers\KategoriController;
@@ -94,4 +95,16 @@ Route::group(['prefix' => 'user'], function(){
     Route::put('/{id}', [UserController::class, 'update']); //menampilkan perubahan data user
     Route::delete('/{id}', [UserController::class, 'destroy']); //menghapus data user
 
+    Route::get('/login', [UserController::class, 'login']);
+});
+
+Route::group(['prefix' => 'barang'], function(){
+    Route::get('/', [BarangController::class, 'index']);
+    Route::post('/list', [BarangController::class, 'list']); //menampilkan data user dalam bentuk json untuk datatables
+    Route::get('/create', [BarangController::class, 'create']); //menampilkan halaman form tambah user
+    Route::post('/', [BarangController::class, 'store']); //menampilkan data user baru
+    Route::get('{id}', [BarangController::class, 'show']); //menampilkan halaman detail user
+    Route::get('/{id}/edit', [BarangController::class, 'edit']); //menampilkan halaman form edit user
+    Route::put('/{id}', [BarangController::class, 'update']); //menampilkan perubahan data user
+    Route::delete('/{id}', [BarangController::class, 'destroy']); //menghapus data user
 });

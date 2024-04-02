@@ -18,6 +18,12 @@ use function PHPUnit\Framework\returnSelf;
 class UserController extends Controller
 {
 
+    public function login(){
+        $breadcrumb = (object)[
+            'title' => 'Login',
+        ];
+    }
+    
     public function index(){
         $breadcrumb = (object)[
             'title'=>'Daftar User',
