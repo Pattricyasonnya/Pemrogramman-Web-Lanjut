@@ -111,3 +111,80 @@ Praktikum 3 – Membuat form kemudian menyimpan data dalam database
 ![image](https://github.com/Pattricyasonnya/Pemrogramman-Web-Lanjut/assets/143475853/27f6417c-0749-469e-9176-8582269e72d3)
 
 ![image](https://github.com/Pattricyasonnya/Pemrogramman-Web-Lanjut/assets/143475853/0c946552-b7c9-4271-9b7f-70bb5195fcdd)
+
+-- PERTEMUAN 5 - Blade View, Web Templating(AdminLTE), Datatables --
+
+Praktikum 1 - Integrasi Laravel dengan AdminLte3
+
+![image](https://github.com/Pattricyasonnya/Pemrogramman-Web-Lanjut/assets/143475853/6c94f22d-ab51-4f33-8ab7-66860b8312e6)
+
+Praktikum 2 – Integrasi dengan DataTables
+
+![image](https://github.com/Pattricyasonnya/Pemrogramman-Web-Lanjut/assets/143475853/2476ef9d-6516-4fc1-8888-5f7e2cfeaa37)
+
+![image](https://github.com/Pattricyasonnya/Pemrogramman-Web-Lanjut/assets/143475853/724b0050-c034-46e7-a3d5-c6dd0ca044fa)
+
+Praktikum 3 – Membuat form kemudian menyimpan data dalam database
+
+![image](https://github.com/Pattricyasonnya/Pemrogramman-Web-Lanjut/assets/143475853/a2364132-2cab-49e7-aeca-b4a4a5fee3c6)
+
+![image](https://github.com/Pattricyasonnya/Pemrogramman-Web-Lanjut/assets/143475853/b9112fb4-59a8-4dbb-aa2f-7eb6575dafb4)
+
+![image](https://github.com/Pattricyasonnya/Pemrogramman-Web-Lanjut/assets/143475853/6954df30-e8f4-443c-b824-6b02651be79b)
+
+Tugas 
+
+![image](https://github.com/Pattricyasonnya/Pemrogramman-Web-Lanjut/assets/143475853/359d8eb5-3178-411b-8b7e-1921538db3fd)
+
+![image](https://github.com/Pattricyasonnya/Pemrogramman-Web-Lanjut/assets/143475853/5c7361d7-f888-4701-80f1-48563c3fd9be)
+
+Nomor 2 dan 3
+
+![image](https://github.com/Pattricyasonnya/Pemrogramman-Web-Lanjut/assets/143475853/a9e37334-f54a-42be-b316-a31486272a0f)
+
+-- PERTEMUAN 6 - Template Form (AdminLTE), Server Validation, Client Validation, CRUD
+
+A.	Template Form (AdminLTE)
+
+![image](https://github.com/Pattricyasonnya/Pemrogramman-Web-Lanjut/assets/143475853/f698fa8d-2d2d-42d7-acda-b221070db4b4)
+
+![image](https://github.com/Pattricyasonnya/Pemrogramman-Web-Lanjut/assets/143475853/20834dda-8469-46de-8b1e-e6d3ee0c2cf6)
+
+![image](https://github.com/Pattricyasonnya/Pemrogramman-Web-Lanjut/assets/143475853/c2362fec-dde6-4f88-8e1e-10d6987f5ce6)
+
+![image](https://github.com/Pattricyasonnya/Pemrogramman-Web-Lanjut/assets/143475853/01f14db5-9703-42bc-972f-22bcf81bb03b)
+
+B. VALIDASI PADA SERVER
+
+![image](https://github.com/Pattricyasonnya/Pemrogramman-Web-Lanjut/assets/143475853/4db34e7a-f389-46b3-a350-2249c4fa88a3)
+
+C. FORM REQUEST VALIDATION
+
+D. CRUD(create, read, update, delete)
+
+![image](https://github.com/Pattricyasonnya/Pemrogramman-Web-Lanjut/assets/143475853/c00ded48-c2bd-49e6-9e57-9668657d0c01)
+
+-- PERTEMUAN 7 - PWL – LARAVEL STARTER CODE
+
+Praktikum 1 – Layouting AdminLTE
+
+![image](https://github.com/Pattricyasonnya/Pemrogramman-Web-Lanjut/assets/143475853/14d89e03-93ee-4364-8361-4ae9c60c4e38)
+
+![image](https://github.com/Pattricyasonnya/Pemrogramman-Web-Lanjut/assets/143475853/f94b8777-0167-4ecf-8d46-1fca9145bd82)
+
+Praktikum 2 – Penerapan Layouting:
+
+![image](https://github.com/Pattricyasonnya/Pemrogramman-Web-Lanjut/assets/143475853/94fd8cbc-0257-418c-8534-c5b82c291e3f)
+
+![image](https://github.com/Pattricyasonnya/Pemrogramman-Web-Lanjut/assets/143475853/56cbaad4-3241-4c48-aecc-ce44a3ff1689)
+
+![image](https://github.com/Pattricyasonnya/Pemrogramman-Web-Lanjut/assets/143475853/dc5c61da-451c-4cf8-8867-c5f7802db053)
+
+![image](https://github.com/Pattricyasonnya/Pemrogramman-Web-Lanjut/assets/143475853/9edff0f5-b8f1-4ce4-83bd-a0dc3ad0afcb)
+
+![image](https://github.com/Pattricyasonnya/Pemrogramman-Web-Lanjut/assets/143475853/6609ae2a-8bb2-458d-9f56-7edaeeb4570c)
+
+Praktikum 4 – Implementasi Filtering Datatables:
+
+![image](https://github.com/Pattricyasonnya/Pemrogramman-Web-Lanjut/assets/143475853/3d6805ad-e90f-4147-a0be-570061c4d514)
+
