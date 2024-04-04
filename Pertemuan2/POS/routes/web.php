@@ -98,6 +98,17 @@ Route::group(['prefix' => 'user'], function(){
     Route::get('/login', [UserController::class, 'login']);
 });
 
+Route::group(['prefix' => 'level'], function(){
+    Route::get('/', [LevelController::class, 'index']);
+    Route::post('/list', [LevelController::class, 'list']); //menampilkan data user dalam bentuk json untuk datatables
+    Route::get('/create', [LevelController::class, 'create']); //menampilkan halaman form tambah user
+    Route::post('/', [LevelController::class, 'store']); //menampilkan data user baru
+    Route::get('{id}', [LevelController::class, 'show']); //menampilkan halaman detail user
+    Route::get('/{id}/edit', [LevelController::class, 'edit']); //menampilkan halaman form edit user
+    Route::put('/{id}', [LevelController::class, 'update']); //menampilkan perubahan data user
+    Route::delete('/{id}', [LevelController::class, 'destroy']); //menghapus data user
+});
+
 Route::group(['prefix' => 'barang'], function(){
     Route::get('/', [BarangController::class, 'index']);
     Route::post('/list', [BarangController::class, 'list']); //menampilkan data user dalam bentuk json untuk datatables
