@@ -35,7 +35,7 @@ class LevelController extends Controller
             'activeMenu' => $activeMenu]);
     }
 
-    // Ambil data user dalam bentuk json untuk datatables 
+    // Ambil data level dalam bentuk json untuk datatables 
     public function list(Request $request) 
     { 
         $levels = LevelModel::select('level_id', 'level_kode', 'level_nama'); 
@@ -84,9 +84,9 @@ class LevelController extends Controller
     //UNTUK MENGHANDLE ATAU MENYIMPAN DATA BARU 
     public function store(Request $request){
         $request->validate([
-            //level_kode harus diisi, berupa string, minimal 3 karakter dan bernilai unik di table m_user kolom level_kode
-            'level_id' => 'required|string|min:3|unique:m_user, level_id',
-            'level_kode' => 'required|string|min:5',
+            //level_kode harus diisi, berupa string, minimal 3 karakter dan bernilai unik di table m_level kolom level_kode
+            
+            'level_kode' => 'required|string|min:3|unique:m_level,level_kode',
             'level_nama' => 'required|string|max:100',
         ]);
 
@@ -98,47 +98,45 @@ class LevelController extends Controller
         return redirect('/level')->with('success', 'Data level berhasil disimpan');
     }
 
-    //MENAMPILKAN DETAIL USER 
+    //MENAMPILKAN DETAIL LEVEL 
     public function show(string $id){
-        $user = UserModel::with('level')-> find($id);
+        $level = LevelModel::find($id);
 
         $breadcrumb = (object)[
-            'title' => 'Detail User',
-            'list' => ['Home', 'User', 'Detail']
+            'title' => 'Detail Level',
+            'list' => ['Home', 'Level', 'Detail']
         ];
 
         $page = (object)[
-            'title' => 'Detail user'
+            'title' => 'Detail level'
         ];
 
-        $activeMenu = 'user'; // set menu yang aktif
+        $activeMenu = 'level'; // set menu yang aktif
 
-        return view('user.show', [
+        return view('level.show', [
             'breadcrumb' => $breadcrumb,
             'page' => $page,
-            'user' => $user,
+            'level' => $level,
             'activeMenu' => $activeMenu]);
     }
 
     public function edit(string $id){
-        $user = UserModel::find($id);
-        $level = LevelModel::all();
+        $level = LevelModel::find($id);
 
         $breadcrumb = (object)[
-            'title' => 'Edit User',
-            'list' => ['Home', 'User', 'Edit']
+            'title' => 'Edit Level',
+            'list' => ['Home', 'Level', 'Edit']
         ];
 
         $page = (object)[
-            'title' => 'Edit user'
+            'title' => 'Edit level'
         ];
 
-        $activeMenu = 'user';
+        $activeMenu = 'level';
 
-        return view('user.edit',[
+        return view('level.edit',[
             'breadcrumb' => $breadcrumb,
             'page' => $page,
-            'user' => $user,
             'level' => $level,
             'activeMenu' => $activeMenu
         ]);
@@ -146,34 +144,30 @@ class LevelController extends Controller
 
     public function update(Request $request, string $id){
         $request->validate([
-            'username' => 'required|string|min:3|unique:m_user,username,' .$id. ',user_id',
-            'nama' => 'required|string|max:100',
-            'password' => 'nullable|min:5',
-            'level_id' => 'required|integer'
+            'level_kode' => 'required|string|min:3|unique:m_level,level_kode,' .$id. ',level_id',
+            'level_nama' => 'required|string|max:100',
         ]);
 
-        UserModel::find($id)->update([
-            'username' => $request-> username,
-            'nama' => $request->nama,
-            'password' => $request->password? bcrypt($request->password):UserModel::find($id)->password,
-            'level_id' =>$request -> level_id
+        LevelModel::find($id)->update([
+            'level_kode' => $request-> level_kode,
+            'level_nama' => $request->nama,
         ]);
 
-        return redirect('/user')->with('success', 'Data berhasil diubah');
+        return redirect('/level')->with('success', 'Data berhasil diubah');
     }
 
     public function destroy(string $id){
-        $check = UserModel::find($id);
+        $check = LevelModel::find($id);
         if(!$check){
-            return redirect('/user')->with('error', 'Data user tidak ditemukan');
+            return redirect('/level')->with('error', 'Data level tidak ditemukan');
         }
         try{
-            UserModel::destroy($id);
+            LevelModel::destroy($id);
 
-            return redirect('/user')->with('success', 'Data user berhasil dihapus');
+            return redirect('/level')->with('success', 'Data level berhasil dihapus');
         }catch(\Illuminate\Database\QueryException $e){
 
-        return redirect('/user')->with('error', 'Data user gagal dihapus karena terdapat tabel lain yang terkait dengan data ini');
+        return redirect('/level')->with('error', 'Data level gagal dihapus karena terdapat tabel lain yang terkait dengan data ini');
     }
 }
 

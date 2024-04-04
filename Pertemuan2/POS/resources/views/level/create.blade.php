@@ -9,25 +9,21 @@
     <div class="card-body"> 
       <form method="POST" action="{{ url('level') }}" class="form-horizontal"> 
         @csrf 
-        <div class="form-group row"> 
-          <label class="col-1 control-label col-form-label">Level</label> 
-          <div class="col-11"> 
-            <select class="form-control" id="level_id" name="level_id" required> 
-              <option value="">- Pilih Level -</option> 
-              @foreach($level as $item) 
-                <option value="{{ $item->level_id }}">{{ $item->level_nama }}</option> 
-              @endforeach 
-            </select> 
-            @error('level_id') 
-              <small class="form-text text-danger">{{ $message }}</small> 
-            @enderror 
-          </div> 
-        </div> 
+        
         <div class="form-group row"> 
           <label class="col-1 control-label col-form-label">Kode Level</label> 
           <div class="col-11"> 
             <input type="text" class="form-control" id="level_kode" name="level_kode" value="{{ old('level_kode') }}" required> 
             @error('level_kode') 
+              <small class="form-text text-danger">{{ $message }}</small> 
+            @enderror 
+          </div> 
+        </div> 
+        <div class="form-group row"> 
+          <label class="col-1 control-label col-form-label">Nama Level</label> 
+          <div class="col-11"> 
+            <input type="text" class="form-control" id="level_nama" name="level_nama" value="{{ old('level_nama') }}" required> 
+            @error('level_nama') 
               <small class="form-text text-danger">{{ $message }}</small> 
             @enderror 
           </div> 

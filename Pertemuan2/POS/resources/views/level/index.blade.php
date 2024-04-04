@@ -30,7 +30,7 @@
         <table class="table table-bordered table-striped table-hover table-sm" id="table_level"> 
           <thead> 
             <tr>
-              <th>Kode Level</th>
+              <th>ID</th>
               <th>Nama Level</th>
               <th>Aksi</th>
             </tr> 
@@ -62,11 +62,6 @@
               orderable: false, 
               searchable: false     
             },{ 
-              data: "level_kode",                
-              className: "", 
-              orderable: true,    // orderable: true, jika ingin kolom ini bisa diurutkan 
-              searchable: true    // searchable: true, jika ingin kolom ini bisa dicari 
-            },{ 
               data: "level_nama",                
               className: "", 
               orderable: true,    // orderable: true, jika ingin kolom ini bisa diurutkan 
@@ -84,4 +79,4 @@
       });
     }); 
   </script> 
-@endpush 
+@endpush
