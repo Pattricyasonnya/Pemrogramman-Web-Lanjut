@@ -91,8 +91,10 @@ class LevelController extends Controller
         ]);
 
         LevelModel::create([
+            'level_id' => $request -> level_id,
             'level_kode'=> $request -> level_kode,
             'level_nama'=> $request -> level_nama,
+
         ]);
 
         return redirect('/level')->with('success', 'Data level berhasil disimpan');
@@ -144,13 +146,14 @@ class LevelController extends Controller
 
     public function update(Request $request, string $id){
         $request->validate([
-            'level_kode' => 'required|string|min:3|unique:m_level,level_kode,' .$id. ',level_id',
+            'level_kode' => 'required|string|min:3|unique:m_level,level_kode,'.$id.',level_id',
             'level_nama' => 'required|string|max:100',
         ]);
 
         LevelModel::find($id)->update([
+            'level_id' => $request -> level_id,
             'level_kode' => $request-> level_kode,
-            'level_nama' => $request->nama,
+            'level_nama' => $request-> level_nama
         ]);
 
         return redirect('/level')->with('success', 'Data berhasil diubah');

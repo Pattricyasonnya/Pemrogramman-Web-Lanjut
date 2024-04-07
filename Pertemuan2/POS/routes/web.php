@@ -9,6 +9,7 @@ use App\Http\Controllers\PenjualanController;
 use App\Http\Controllers\POSController;
 use App\Http\Controllers\UserController;
 use App\Http\Controllers\WelcomeController;
+use App\Models\KategoriModel;
 use Database\Seeders\LevelSeeder;
 use Illuminate\Support\Facades\Route;
 use PhpParser\Node\Stmt\Catch_;
@@ -24,11 +25,14 @@ use PhpParser\Node\Stmt\Catch_;
 |
 */
 
+
 Route::get('/', function () {
     return view('welcome');
 });
 
-Route::get('/home', [HomeController::class, 'home']);
+
+
+//Route::get('/home', [HomeController::class, 'home']);
 
 
 /*//Route::prefix('products')->group(function(){
@@ -118,4 +122,26 @@ Route::group(['prefix' => 'barang'], function(){
     Route::get('/{id}/edit', [BarangController::class, 'edit']); //menampilkan halaman form edit user
     Route::put('/{id}', [BarangController::class, 'update']); //menampilkan perubahan data user
     Route::delete('/{id}', [BarangController::class, 'destroy']); //menghapus data user
+});
+
+Route::group(['prefix' => 'kategori'], function(){
+    Route::get('/', [KategoriController::class, 'index']);
+    Route::post('/list', [KategoriController::class, 'list']); //menampilkan data user dalam bentuk json untuk datatables
+    Route::get('/create', [KategoriController::class, 'create']); //menampilkan halaman form tambah user
+    Route::post('/', [KategoriController::class, 'store']); //menampilkan data user baru
+    Route::get('{id}', [KategoriController::class, 'show']); //menampilkan halaman detail user
+    Route::get('/{id}/edit', [KategoriController::class, 'edit']); //menampilkan halaman form edit user
+    Route::put('/{id}', [KategoriController::class, 'update']); //menampilkan perubahan data user
+    Route::delete('/{id}', [KategoriController::class, 'destroy']); //menghapus data user
+});
+
+
+//UJIAN TENGAH SEMESTER
+
+Route::get('/login', function () {
+    return view('login');
+});
+
+Route::get('/register', function(){
+    return view('register');
 });

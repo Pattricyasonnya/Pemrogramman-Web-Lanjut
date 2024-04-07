@@ -6,6 +6,7 @@ use App\Models\BarangModel;
 use App\Models\KategoriModel;
 use Faker\Core\Barcode;
 use Illuminate\Http\Request;
+use Yajra\DataTables\DataTables as DataTablesDataTables;
 use Yajra\DataTables\Facades\DataTables;
 
 class BarangController extends Controller
@@ -23,7 +24,7 @@ class BarangController extends Controller
         $activeMenu = 'barang'; //set saat menu aktif
         $kategori = KategoriModel::all();
 
-        return view('barang.data', [
+        return view('barang.index', [
             'breadcrumb' => $breadcrumb,
             'page' => $page,
             'kategori' => $kategori,
@@ -33,7 +34,7 @@ class BarangController extends Controller
     // Ambil data barang dalam bentuk json untuk datatables 
     public function list(Request $request) 
     { 
-        $barangs = BarangModel::select('barang_id', 'barang_nama', 'kategori_id','harga_jual') 
+        $barangs = BarangModel::select('barang_id', 'barang_nama', 'kategori_id', 'harga_jual') 
                 ->with('kategori'); 
 
                 //filter
@@ -80,26 +81,24 @@ class BarangController extends Controller
     //UNTUK MENGHANDLE ATAU MENYIMPAN DATA BARU 
     public function store(Request $request){
         $request->validate([
-            //barangname harus diisi, berupa string, minimal 3 karakter dan bernilai unik di table m_barang kolom barangname
+            //barang_kode harus diisi, berupa string, minimal 3 karakter dan bernilai unik di table m_barang kolom barang_kode
+            'barang_kode' => 'required|string|min:3|unique:m_barang,barang_kode',
             'barang_nama' => 'required|string|max:100',
-            'barang_kode' => 'required|string|max:5',
-            'kategori_id' => 'required|integer',
-            'harga_beli' => 'required|integer',
             'harga_jual' => 'required|integer'
         ]);
 
         BarangModel::create([
+            'barang_kode'=> $request -> barang_kode,
             'barang_nama'=> $request -> barang_nama,
-            'barang_kode' => $request -> barang_kode,
-            'kategori_id' => $request -> kategori_id,
             'harga_beli' => $request -> harga_beli,
-            'harga_jual' => $request ->harga_jual
+            'harga_jual' => $request -> harga_jual,
+            'kategori_id' => $request -> kategori_id
         ]);
 
         return redirect('/barang')->with('success', 'Data barang berhasil disimpan');
     }
 
-    //MENAMPILKAN DETAIL barang 
+    //MENAMPILKAN DETAIL BARANG 
     public function show(string $id){
         $barang = BarangModel::with('kategori')-> find($id);
 
@@ -121,14 +120,13 @@ class BarangController extends Controller
             'activeMenu' => $activeMenu]);
     }
 
-
     public function edit(string $id){
         $barang = BarangModel::find($id);
         $kategori = KategoriModel::all();
 
         $breadcrumb = (object)[
-            'title' => 'Edit barang',
-            'list' => ['Home', 'barang', 'Edit']
+            'title' => 'Edit Barang',
+            'list' => ['Home', 'Barang', 'Edit']
         ];
 
         $page = (object)[
@@ -148,17 +146,15 @@ class BarangController extends Controller
 
     public function update(Request $request, string $id){
         $request->validate([
-            'barangname' => 'required|string|min:3|unique:m_barang,barangname,' .$id. ',barang_id',
-            'nama' => 'required|string|max:100',
-            'password' => 'nullable|min:5',
-            'kategori_id' => 'required|integer'
+            'barang_kode' => 'required|string|min:3|unique:m_barang,barang_kode,' .$id. ',barang_id',
+            'barang_nama' => 'required|string|max:100',
+            'harga_jual' => 'required|integer'
         ]);
 
         BarangModel::find($id)->update([
-            'barangname' => $request-> barangname,
-            'nama' => $request->nama,
-            'password' => $request->password? bcrypt($request->password):BarangModel::find($id)->password,
-            'kategori_id' =>$request -> kategori_id
+            'barang_kode' => $request-> barang_kode,
+            'barang_nama' => $request->barang_nama,
+            'harga_jual' =>$request -> harga_jual
         ]);
 
         return redirect('/barang')->with('success', 'Data berhasil diubah');
@@ -177,5 +173,5 @@ class BarangController extends Controller
 
         return redirect('/barang')->with('error', 'Data barang gagal dihapus karena terdapat tabel lain yang terkait dengan data ini');
     }
-}
+    }
 }
