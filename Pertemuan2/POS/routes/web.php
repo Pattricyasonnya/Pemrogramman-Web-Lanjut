@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\AuthController;
 use App\Http\Controllers\BarangController;
 use App\Http\Controllers\CategoriController;
 use App\Http\Controllers\HomeController;
@@ -26,9 +27,17 @@ use PhpParser\Node\Stmt\Catch_;
 */
 
 
-Route::get('/', function () {
-    return view('welcome');
-});
+
+
+Route::get('/login', [AuthController::class, 'index'])->name('login.index'); 
+Route::get('/logout', [AuthController::class, 'logout'])->name('logout'); 
+Route::post('/auth', [AuthController::class, 'authenticate'])->name('autentifikasi');
+Route::post('/register', [AuthController::class, 'register'])->name('register');
+Route::get('/signup',[AuthController::class, 'signup'])->name('signup');
+
+
+
+
 
 
 
@@ -66,6 +75,9 @@ Route::put('/user/ubah_simpan/{id}', [UserController::class, 'ubah_simpan']);
 Route::get('/user/hapus/{id}', [UserController::class, 'hapus']);*/
 
 //PERTEMUAN 5
+Route::middleware(['auth'])->group(function(){
+    Route::get('/dashboard', [WelcomeController::class, 'index'] )->name('dashboard');
+
 Route::get('/kategori', [KategoriController::class, 'index']);
 Route::get('/kategori/create', [KategoriController::class, 'create']);
 Route::post('/kategori', [KategoriController:: class, 'store']);
@@ -134,14 +146,9 @@ Route::group(['prefix' => 'kategori'], function(){
     Route::put('/{id}', [KategoriController::class, 'update']); //menampilkan perubahan data user
     Route::delete('/{id}', [KategoriController::class, 'destroy']); //menghapus data user
 });
+});
 
 
 //UJIAN TENGAH SEMESTER
 
-Route::get('/login', function () {
-    return view('login');
-});
 
-Route::get('/register', function(){
-    return view('register');
-});

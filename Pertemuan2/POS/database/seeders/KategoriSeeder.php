@@ -14,7 +14,7 @@ class KategoriSeeder extends Seeder
     public function run(): void
     {
         $data = [
-            /*[
+            [
                 'kategori_id' => 1,
                 'kategori_kode' => 'FB',
                 'kategori_nama' => 'Food and Beverage',
@@ -38,7 +38,7 @@ class KategoriSeeder extends Seeder
                 'kategori_id' => 5,
                 'kategori_kode' => 'FS',
                 'kategori_nama' => 'Fashion',
-            ],*/
+            ],
             [
                 'kategori_id' => 6,
                 'kategori_kode' => 'CML',
