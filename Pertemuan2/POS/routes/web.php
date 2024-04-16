@@ -8,6 +8,7 @@ use App\Http\Controllers\KategoriController;
 use App\Http\Controllers\LevelController;
 use App\Http\Controllers\PenjualanController;
 use App\Http\Controllers\POSController;
+use App\Http\Controllers\StokController;
 use App\Http\Controllers\UserController;
 use App\Http\Controllers\WelcomeController;
 use App\Models\KategoriModel;
@@ -29,53 +30,16 @@ use PhpParser\Node\Stmt\Catch_;
 
 
 
-Route::get('/login', [AuthController::class, 'index'])->name('login.index'); 
+Route::get('/login', [AuthController::class, 'index'])->name('login.index'); //route untuk view login atau tampilan 
+Route::post('/auth', [AuthController::class, 'authenticate'])->name('autentifikasi'); //route untuk operasi login 
+Route::post('/register', [AuthController::class, 'register'])->name('register'); // route operasi register
+Route::get('/signup',[AuthController::class, 'signup'])->name('signup'); //route tempilan register
 Route::get('/logout', [AuthController::class, 'logout'])->name('logout'); 
-Route::post('/auth', [AuthController::class, 'authenticate'])->name('autentifikasi');
-Route::post('/register', [AuthController::class, 'register'])->name('register');
-Route::get('/signup',[AuthController::class, 'signup'])->name('signup');
-
-
-
-
-
-
-
-//Route::get('/home', [HomeController::class, 'home']);
-
-
-/*//Route::prefix('products')->group(function(){
-    Route::get('/category/food-beverage', [KategoriController::class, 'food_beverage']);
-    Route::get('/category/beauty-health', [KategoriController::class, 'beauty_health']);
-    Route::get('/category/home-care', [KategoriController::class, 'home_care']);
-    Route::get('/category/baby-kid', [KategoriController::class, 'baby_kid']);
-//});
-
-Route::get('/products', [KategoriController::class, 'products']);
-
-Route::get('/user/{id}/name/{name}', [UserController::class, 'user']);
-
-Route::get('/penjualan', [PenjualanController::class, 'penjualan']);
-
-
-//Pertemuan 3
-Route::get('/level', [LevelController::class, 'index']);
-//Route::get('/kategori', [KategoriController::class, 'index']);
-
-Route::get('/user', [UserController::class, 'index']);
-
-Route::get('/user/tambah', [UserController::class, 'tambah']);
-
-Route::post('/user/tambah_simpan', [UserController::class, 'tambah_simpan']);
-
-Route::get('/user/ubah/{id}', [UserController::class, 'ubah']);
-
-Route::put('/user/ubah_simpan/{id}', [UserController::class, 'ubah_simpan']);
-
-Route::get('/user/hapus/{id}', [UserController::class, 'hapus']);*/
 
 //PERTEMUAN 5
+//middleware untuk membungkus agar tidak bisa langsung diakses sebelum login 
 Route::middleware(['auth'])->group(function(){
+    
     Route::group(['prefix' => 'dashboard'], function(){
         Route::post('/list', [WelcomeController::class, 'list'])->name('list_member');
         Route::get('/', [WelcomeController::class, 'index'] )->name('dashboard');
@@ -156,7 +120,72 @@ Route::group(['prefix' => 'kategori'], function(){
     Route::put('/{id}', [KategoriController::class, 'update']); //menampilkan perubahan data user
     Route::delete('/{id}', [KategoriController::class, 'destroy']); //menghapus data user
 });
+
+Route::group(['prefix' => 'stok'], function () {
+    Route::get('/', [StokController::class, 'index']);
+    Route::post('/list', [StokController::class, 'list']);
+    Route::get('/create', [StokController::class, 'create']);
+    Route::put('/{id}', [StokController::class, 'update']);
+    Route::get('/{id}/edit', [StokController::class, 'edit']);
+    Route::get('/{id}', [StokController::class, 'show']);
+    Route::post('/', [StokController::class, 'store']);
+    Route::put('/{id}', [StokController::class, 'update']);
+    Route::delete('/{id}', [StokController::class, 'destroy']);
+
 });
+
+Route::group(['prefix' => 'penjualan'], function () {
+    Route::get('/', [PenjualanController::class, 'index']);
+    Route::post('/list', [PenjualanController::class, 'list']);
+    Route::get('/create', [PenjualanController::class, 'create']);
+    Route::put('/{id}', [PenjualanController::class, 'update']);
+    Route::get('/{id}/edit', [PenjualanController::class, 'edit']);
+    Route::get('/{id}', [PenjualanController::class, 'show']);
+    Route::post('/', [PenjualanController::class, 'store']);
+    Route::put('/{id}', [PenjualanController::class, 'update']);
+    Route::delete('/{id}', [PenjualanController::class, 'destroy']);
+
+});
+});
+
+
+
+
+
+
+//Route::get('/home', [HomeController::class, 'home']);
+
+
+/*//Route::prefix('products')->group(function(){
+    Route::get('/category/food-beverage', [KategoriController::class, 'food_beverage']);
+    Route::get('/category/beauty-health', [KategoriController::class, 'beauty_health']);
+    Route::get('/category/home-care', [KategoriController::class, 'home_care']);
+    Route::get('/category/baby-kid', [KategoriController::class, 'baby_kid']);
+//});
+
+Route::get('/products', [KategoriController::class, 'products']);
+
+Route::get('/user/{id}/name/{name}', [UserController::class, 'user']);
+
+Route::get('/penjualan', [PenjualanController::class, 'penjualan']);
+
+
+//Pertemuan 3
+Route::get('/level', [LevelController::class, 'index']);
+//Route::get('/kategori', [KategoriController::class, 'index']);
+
+Route::get('/user', [UserController::class, 'index']);
+
+Route::get('/user/tambah', [UserController::class, 'tambah']);
+
+Route::post('/user/tambah_simpan', [UserController::class, 'tambah_simpan']);
+
+Route::get('/user/ubah/{id}', [UserController::class, 'ubah']);
+
+Route::put('/user/ubah_simpan/{id}', [UserController::class, 'ubah_simpan']);
+
+Route::get('/user/hapus/{id}', [UserController::class, 'hapus']);*/
+
 
 
 //UJIAN TENGAH SEMESTER

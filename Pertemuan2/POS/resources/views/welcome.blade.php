@@ -12,7 +12,7 @@
   </div>
 </div>
 
-{{-- menampilkan data siapa yg login di halamandashboard --}}
+{{-- menampilkan data siapa yg login di halaman dashboard --}}
 @if (auth()->user()->level->level_nama!='Member')
 <div class="chartWrapper">
   {!! $chart->container() !!}

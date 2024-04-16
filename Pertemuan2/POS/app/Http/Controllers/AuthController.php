@@ -28,11 +28,14 @@ class AuthController extends Controller
         ]);
 
         $user = UserModel::where('username', $credentials['username'])->first();
+        if(isset($user)){
             if($user->status == 0){
                 return back()->withErrors(['status'=>'Akun belum validasi']);
-            } 
+            }
+        }
+             
         
-        //auth attempt mencari dan validasi data ke usermodel yang datanya dimasukkan apakah sama dengan request yang dikirim       
+        //auth attempt : mencari dan validasi data ke usermodel, yang datanya dimasukkan apakah sama dengan request yang dikirim       
         if (Auth::attempt($credentials)) {
             
             $request->session()->regenerate();
@@ -45,6 +48,8 @@ class AuthController extends Controller
         ])->onlyInput('username');
     }
 
+
+    //LOG OUT - menampilkan view logout
     public function logout(Request $request): RedirectResponse
 {
     Auth::logout();
@@ -53,6 +58,7 @@ class AuthController extends Controller
  
     $request->session()->regenerateToken();
  
+    //menampilkan halaman login kembali
     return redirect()->route('login.index');
 }
 
