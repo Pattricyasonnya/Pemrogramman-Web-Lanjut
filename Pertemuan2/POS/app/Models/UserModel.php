@@ -12,7 +12,7 @@ class UserModel extends Authenticatable
     use HasFactory;
 
     protected $table = 'm_user';
-    public $timestamps = false;
+    public $timestamps = true;
     protected $primaryKey = 'user_id';
 
     protected $fillable = [
@@ -21,7 +21,8 @@ class UserModel extends Authenticatable
         'username', 
         'nama', 
         'password',
-        'profil_img'];
+        'profil_img',
+        'status'];
 
         // hidden : berisi data yg disembunyikan
         protected $hidden = [

@@ -12,23 +12,28 @@ use Illuminate\Support\Str;
 
 class AuthController extends Controller
 {
+
+    //untuk menampilkan view 
     public function index(){
         return view('login');
     }
 
+
+    //untuk operasi saat login yang nantinya memanggil view login class index
     public function authenticate(Request $request): RedirectResponse
     {
-       
         $credentials = $request->validate([
             'username' => ['required'],
             'password' => ['required'],
         ]);
- //auth attempt mencari dan validasi data ke usermodel yang datanya dimasukkan sama dengan request yang dikirim 
- $user = UserModel::where('username', $credentials['username'])->first();
-            if($user->status==0){
+
+        $user = UserModel::where('username', $credentials['username'])->first();
+            if($user->status == 0){
                 return back()->withErrors(['status'=>'Akun belum validasi']);
-            }       
- if (Auth::attempt($credentials)) {
+            } 
+        
+        //auth attempt mencari dan validasi data ke usermodel yang datanya dimasukkan apakah sama dengan request yang dikirim       
+        if (Auth::attempt($credentials)) {
             
             $request->session()->regenerate();
  
@@ -68,7 +73,7 @@ public function register(Request $request){
     try {
         //begin : menunjukkan akan adanya proses
         DB::beginTransaction();
-//dipakai simpan file request ke folder laravel
+        //dipakai simpan file request ke folder laravel
         $profilimg=$register['profil_img'];
         // membuat nama random + nama asli 
         //get : mendapatkan nama asli

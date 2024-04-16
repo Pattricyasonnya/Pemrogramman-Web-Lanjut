@@ -76,7 +76,17 @@ Route::get('/user/hapus/{id}', [UserController::class, 'hapus']);*/
 
 //PERTEMUAN 5
 Route::middleware(['auth'])->group(function(){
-    Route::get('/dashboard', [WelcomeController::class, 'index'] )->name('dashboard');
+    Route::group(['prefix' => 'dashboard'], function(){
+        Route::post('/list', [WelcomeController::class, 'list'])->name('list_member');
+        Route::get('/', [WelcomeController::class, 'index'] )->name('dashboard');
+        Route::get('/{id}/validasi_member', [WelcomeController::class, 'validasiMember'] )->name('validasiMember');
+        Route::delete('/{id}', [WelcomeController::class, 'destroy']); //menghapus data user
+        Route::get('{id}', [WelcomeController::class, 'show']); //menampilkan halaman detail user
+    });
+
+    Route::get('/exportPDF', [WelcomeController::class, 'exportPDF'])->name('PDF');
+    Route::get('/exportExcel', [WelcomeController::class, 'exportExcel'])->name('EXCEL');
+
 
 Route::get('/kategori', [KategoriController::class, 'index']);
 Route::get('/kategori/create', [KategoriController::class, 'create']);

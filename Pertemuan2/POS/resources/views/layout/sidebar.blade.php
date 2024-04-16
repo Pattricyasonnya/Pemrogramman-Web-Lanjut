@@ -22,6 +22,9 @@
                       <p>Dashboard</p> 
                     </a> 
                   </li> 
+                  {{-- Membuat halaman yang berbeda antara admin dan member --}}
+                  {{-- auth user : mengecek siapa yang login  --}}
+                  @if (auth()->user()->level->level_nama!='Member')
                   <li class="nav-header">Data Pengguna</li> 
                   <li class="nav-item"> 
                     <a href="{{ url('/level') }}" class="nav-link {{ ($activeMenu == 'level')? 
@@ -66,7 +69,9 @@
                                   <i class="nav-icon fas fa-cash-register"></i> 
                                   <p>Transaksi Penjualan</p> 
                                 </a> 
-                              </li> 
+                              </li>
+                  @endif
+                   
                   <li class="nav-item"> 
                     <a href="{{ route('logout') }}" class="nav-link {{ ($activeMenu == 
                         'logout')? 'active' : '' }} "> 
