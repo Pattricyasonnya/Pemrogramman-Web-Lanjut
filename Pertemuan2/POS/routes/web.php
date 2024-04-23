@@ -39,7 +39,7 @@ Route::get('/logout', [AuthController::class, 'logout'])->name('logout');
 //PERTEMUAN 5
 //middleware untuk membungkus agar tidak bisa langsung diakses sebelum login 
 Route::middleware(['auth'])->group(function(){
-    
+    //HALAMAN BERANDA SETELAH LOGIN UNTUK ADMIN
     Route::group(['prefix' => 'dashboard'], function(){
         Route::post('/list', [WelcomeController::class, 'list'])->name('list_member');
         Route::get('/', [WelcomeController::class, 'index'] )->name('dashboard');

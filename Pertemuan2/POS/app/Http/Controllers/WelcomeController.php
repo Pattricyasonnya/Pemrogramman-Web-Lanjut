@@ -44,7 +44,7 @@ class WelcomeController extends Controller
         ->addColumn('aksi', function ($user) {  // menambahkan kolom aksi 
             $btn  = '<a href="'.url('/dashboard/' . $user->user_id).'" class="btn btn-info btn-sm">Detail</a> '; 
             //fungsi sama seperti if else tapi diperpendek. 
-            $btn .= '<a href="'.url('/dashboard/' . $user->user_id . '/validasi_member').'" class="btn btn-warning btn-sm">'.($user->status == 0?'Tidak Validasi':'Validasi').'</a> '; 
+            $btn .= '<a href="'.url('/dashboard/' . $user->user_id . '/validasi_member').'" class="btn btn-warning btn-sm">'.($user->status == 0?'Validasi':'Tidak Validasi').'</a> '; 
             $btn .= '<form class="d-inline-block" method="POST" action="'. url('/dashboard/'.$user->user_id).'">' 
                     . csrf_field() . method_field('DELETE') .  
                     '<button type="submit" class="btn btn-danger btn-sm" 

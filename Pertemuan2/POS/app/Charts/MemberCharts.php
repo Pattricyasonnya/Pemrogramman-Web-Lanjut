@@ -18,10 +18,11 @@ class MemberCharts
 
     public function build(): \ArielMejiaDev\LarapexCharts\BarChart
     {
+        //mengambil level member untuk grafik
         $levelMember = LevelModel::where('level_nama', 'Member')->first();
         $start = Carbon::now()->startOfMonth()->format('Y-m-d');
 
-        
+        //memilih data untuk grafik, menghitung jumlah user_id yang baru register sebagai member
         $dataRaw = DB::select(
         "SELECT count(user_id) as count, DATE_FORMAT(u.created_at, '%W %d %M') as day 
         from m_user as u 

@@ -14,9 +14,11 @@
 
 {{-- menampilkan data siapa yg login di halaman dashboard --}}
 @if (auth()->user()->level->level_nama!='Member')
+{{-- TAMPILAN CHARTS ATAU GRAFIK --}}
 <div class="chartWrapper">
   {!! $chart->container() !!}
 </div>
+
 <div class="btnWrapper mb-2">
   <a href="{{route('PDF')}}" class="btn btn-danger mr-2">
     Export-PDF
@@ -59,7 +61,8 @@
   </tr> 
   <tr> 
       <th>Profil</th>
-      <td><img src="{{asset('storage/profil/'.auth()->user()->profil_img)}}" style="max-width: 500px;" alt="Foto"></td>
+      <td><img src="{{asset('storage/profil/'.auth()->user()->profil_img)}}" 
+        style="max-width: 500px;" alt="Foto"></td>
   </tr> 
 </table> 
 @endif
@@ -117,6 +120,7 @@
       });
     }); 
   </script> 
+  {{-- GRAFIK HALAMAN DASHBOARD ADMIN --}}
   <script src="{{ $chart->cdn() }}"></script>
 
   {{ $chart->script() }}
