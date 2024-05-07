@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\AdminController;
+use App\Http\Controllers\Api\RegisterController;
 use App\Http\Controllers\AuthController;
 use App\Http\Controllers\BarangController;
 use App\Http\Controllers\CategoriController;
@@ -30,13 +31,16 @@ use PhpParser\Node\Stmt\Catch_;
 */
 
 
+// Route::post('/register', RegisterController::class)->name('register');
 
 
 Route::get('login', [AuthController::class, 'index'])->name('login'); //route untuk view login atau tampilan 
-Route::get('register', [AuthController::class, 'register'])->name('register'); //route untuk operasi login 
+// Route::get('register', [AuthController::class, 'register'])->name('register'); //route untuk operasi login 
 Route::post('proses_login', [AuthController::class, 'proses_login'])->name('proses_login'); // route operasi register
 Route::get('logout',[AuthController::class, 'logout'])->name('logout'); //route tempilan register
 Route::post('proses_register', [AuthController::class, 'proses_register'])->name('proses_register'); 
+
+// Route::get('/login', App\Http\Controllers\AuthController::class)->name('login');
 
 Route::group(['middleware'=> ['auth']], function(){
     Route::group(['middleware'=>['cek_login:1']], function(){
