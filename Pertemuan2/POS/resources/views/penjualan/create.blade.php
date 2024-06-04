@@ -39,7 +39,7 @@
         <div class="col-11">
           <select class="form-control" id="user_id" name="user_id" required>
             <option value="">- Pilih User -</option>
-            @foreach($user as $item)
+            @foreach($userTambah as $item)
             <option value="{{ $item->user_id }}">{{ $item->nama
               }}</option>
             @endforeach

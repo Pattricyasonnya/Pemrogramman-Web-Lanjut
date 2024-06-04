@@ -42,7 +42,7 @@
         <div class="col-11">
           <select class="form-control" id="user_id" name="user_id" required>
             <option value="">- Pilih User -</option>
-            @foreach($user as $item)
+            @foreach($userTambah as $item)
             <option value="{{ $item->user_id }}" 
               >{{ $item->nama }}</option>
             @endforeach
@@ -56,7 +56,7 @@
         <label class="col-1 control-label col-form-label">Tanggal Stok</label>
         <div class="col-11">
           <input type="date" class="form-control" id="stok_tanggal" name="stok_tanggal"
-            value="{{ old('stok_tanggal' )}}">
+            value="{{ old('stok_tanggal', \Carbon\Carbon::now()->format('d-m-Y\TH:i')) }}">
           @error('stok_tanggal')
           <small class="form-text text-danger">{{ $message }}</small>
           @enderror

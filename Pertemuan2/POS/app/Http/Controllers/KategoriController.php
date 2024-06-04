@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\DataTables\KategoriDataTable;
 use App\Http\Requests\StorePostRequest;
 use App\Models\KategoriModel;
+use App\Models\UserModel;
 use Illuminate\Contracts\View\View;
 use Illuminate\Http\RedirectResponse;
 use Illuminate\Http\Request;
@@ -30,7 +31,9 @@ class KategoriController extends Controller
             'breadcrumb' => $breadcrumb,
             'page' => $page,
             'kategori' => $kategori,
-            'activeMenu' => $activeMenu]);
+            'activeMenu' => $activeMenu,
+            'user' => UserModel::all()
+        ]);
     }
 
     // Ambil data kategori dalam bentuk json untuk datatables 
@@ -40,7 +43,7 @@ class KategoriController extends Controller
 
                 //filter
                 if($request->kategori_id){
-                    $kategoris->where('kategori_nama', $request->kategori_nama);
+                    $kategoris->where('kategori_id', $request->kategori_id);
                 }
  
         return DataTables::of($kategoris) 
@@ -75,7 +78,8 @@ class KategoriController extends Controller
             'breadcrumb' => $breadcrumb,
             'page' => $page,
             'kategori' => $kategori,
-            'activeMenu' => $activeMenu
+            'activeMenu' => $activeMenu,
+            'user' => UserModel::all()
         ]);
     }
 
@@ -115,7 +119,9 @@ class KategoriController extends Controller
             'breadcrumb' => $breadcrumb,
             'page' => $page,
             'kategori' => $kategori,
-            'activeMenu' => $activeMenu]);
+            'activeMenu' => $activeMenu,
+            'user' => UserModel::all()
+        ]);
     }
 
     public function edit(string $id){
@@ -136,7 +142,8 @@ class KategoriController extends Controller
             'breadcrumb' => $breadcrumb,
             'page' => $page,
             'kategori' => $kategori,
-            'activeMenu' => $activeMenu
+            'activeMenu' => $activeMenu,
+            'user' => UserModel::all()
         ]);
     }
 

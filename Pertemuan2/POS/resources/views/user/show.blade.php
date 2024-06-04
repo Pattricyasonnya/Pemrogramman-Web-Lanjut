@@ -16,19 +16,19 @@
             <table class="table table-bordered table-striped table-hover table-sm"> 
                 <tr> 
                     <th>ID</th> 
-                    <td>{{ $user->user_id }}</td> 
+                    <td>{{ $userShow->user_id }}</td> 
                 </tr> 
                 <tr> 
                     <th>Level</th> 
-                    <td>{{ $user->level->level_nama }}</td> 
+                    <td>{{ $userShow->level->level_nama }}</td> 
                 </tr> 
                 <tr> 
                     <th>Username</th> 
-                    <td>{{ $user->username }}</td> 
+                    <td>{{ $userShow->username }}</td> 
                 </tr> 
                 <tr> 
                     <th>Nama</th> 
-                    <td>{{ $user->nama }}</td> 
+                    <td>{{ $userShow->nama }}</td> 
                 </tr> 
                 <tr> 
                     <th>Password</th> 

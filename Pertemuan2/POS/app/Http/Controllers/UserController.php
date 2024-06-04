@@ -35,7 +35,9 @@ class UserController extends Controller
             'breadcrumb' => $breadcrumb,
             'page' => $page,
             'level' => $level,
-            'activeMenu' => $activeMenu]);
+            'activeMenu' => $activeMenu,
+            'user' => UserModel::all()
+        ]);
     }
 
     // Ambil data user dalam bentuk json untuk datatables 
@@ -81,7 +83,8 @@ class UserController extends Controller
             'breadcrumb' => $breadcrumb,
             'page' => $page,
             'level' => $level,
-            'activeMenu' => $activeMenu
+            'activeMenu' => $activeMenu,
+            'user' => UserModel::all()
         ]);
     }
 
@@ -123,8 +126,10 @@ class UserController extends Controller
         return view('user.show', [
             'breadcrumb' => $breadcrumb,
             'page' => $page,
-            'user' => $user,
-            'activeMenu' => $activeMenu]);
+            'userShow' => $user,
+            'activeMenu' => $activeMenu,
+            'user' => UserModel::all()
+        ]);
     }
 
     public function edit(string $id){
@@ -145,9 +150,10 @@ class UserController extends Controller
         return view('user.edit',[
             'breadcrumb' => $breadcrumb,
             'page' => $page,
-            'user' => $user,
+            'userEdit' => $user,
             'level' => $level,
-            'activeMenu' => $activeMenu
+            'activeMenu' => $activeMenu,
+            'user' => UserModel::all()
         ]);
     }
 

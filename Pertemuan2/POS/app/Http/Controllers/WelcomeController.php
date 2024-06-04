@@ -19,18 +19,18 @@ class WelcomeController extends Controller
         ];
 
         $activeMenu = 'dashboard';
-
         return view('welcome', [
             'breadcrumb' => $breadcrumb, 
             'activeMenu' => $activeMenu,
-            'chart' => $chart->build()
+            'chart' => $chart->build(),
+            'user' => UserModel::all()
         ]);
     }
 
     public function list(Request $request) 
     { 
-        $users = UserModel::with('level')
-        ->whereRelation('level', 'level_nama', 'Member');
+        $users = UserModel::with('level');
+        // ->whereRelation('level', 'level_nama', 'Member');
         //menghilangkan data yang sudah tervalidasi atau memunculkan data yang statusnya 0 
         // ->where('status', 0);
 

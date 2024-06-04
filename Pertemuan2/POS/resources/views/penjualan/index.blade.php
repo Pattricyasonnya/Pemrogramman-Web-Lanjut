@@ -15,6 +15,8 @@
         @if (session('error'))
         <div class="alert alert-danger">{{session('error')}}</div>
         @endif
+        @if(auth()->user()->level->level_nama != 'Member')
+
         <div class="row">
           <label class="col-1 control-label col-form-label">Filter:</label>
           <div class="col-3">
@@ -27,6 +29,8 @@
             <small class="form-text text-muted">Penjualan Kode</small>
           </div>
         </div>
+        @endif
+        
         <table class="table table-bordered table-striped table-hover table-sm" id="table_penjualan"> 
           <thead> 
             <tr>

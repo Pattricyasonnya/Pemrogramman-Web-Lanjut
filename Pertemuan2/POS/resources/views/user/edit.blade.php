@@ -7,14 +7,14 @@
       <div class="card-tools"></div> 
     </div> 
     <div class="card-body"> 
-      @empty($user) 
+      @empty($userEdit) 
         <div class="alert alert-danger alert-dismissible"> 
             <h5><i class="icon fas fa-ban"></i> Kesalahan!</h5> 
             Data yang Anda cari tidak ditemukan. 
         </div> 
         <a href="{{ url('user') }}" class="btn btn-sm btn-default mt-2">Kembali</a> 
       @else 
-        <form method="POST" action="{{ url('/user/'.$user->user_id) }}" 
+        <form method="POST" action="{{ url('/user/'.$userEdit->user_id) }}" 
 class="form-horizontal"> 
 @csrf 
 {!! method_field('PUT') !!}  <!-- tambahkan baris ini untuk proses edit yang butuh method PUT --> 
@@ -25,7 +25,7 @@ class="form-horizontal">
       <option value="">- Pilih Level -</option> 
       @foreach($level as $item) 
         <option value="{{ $item->level_id }}" 
-          @if($item->level_id == $user->level_id) 
+          @if($item->level_id == $userEdit->level_id) 
           selected @endif>{{ $item->level_nama }}</option> 
       @endforeach 
     </select> 
@@ -37,7 +37,7 @@ class="form-horizontal">
 <div class="form-group row"> 
   <label class="col-1 control-label col-form-label">Username</label> 
   <div class="col-11"> 
-    <input type="text" class="form-control" id="username" name="username" value="{{ old('username', $user->username) }}" required> 
+    <input type="text" class="form-control" id="username" name="username" value="{{ old('username', $userEdit->username) }}" required> 
     @error('username') 
       <small class="form-text text-danger">{{ $message }}</small> 
     @enderror 
@@ -46,7 +46,7 @@ class="form-horizontal">
 <div class="form-group row"> 
   <label class="col-1 control-label col-form-label">Nama</label> 
   <div class="col-11"> 
-    <input type="text" class="form-control" id="nama" name="nama" value="{{ old('nama', $user->nama) }}" required> 
+    <input type="text" class="form-control" id="nama" name="nama" value="{{ old('nama', $userEdit->nama) }}" required> 
     @error('nama') 
       <small class="form-text text-danger">{{ $message }}</small> 
     @enderror 

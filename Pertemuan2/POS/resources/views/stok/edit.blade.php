@@ -47,7 +47,7 @@
         <div class="col-11">
           <select class="form-control" id="user_id" name="user_id" required>
             <option value="">- Pilih User -</option>
-            @foreach($user as $item)
+            @foreach($userEdit as $item)
             <option value="{{ $item->user_id }}" @if($item->user_id ==
               $stok->user_id) selected @endif>{{ $item->nama }}</option>
             @endforeach

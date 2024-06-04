@@ -35,18 +35,25 @@ class PenjualanController extends Controller
             'breadcrumb' => $breadcrumb,
             'page' => $page,
             'penjualan' => $penjualan,
-            'activeMenu' => $activeMenu]);
+            'activeMenu' => $activeMenu,
+            'user' => UserModel::all()
+        ]);
     }
 
     // Ambil data user dalam bentuk json untuk datatables 
     public function list(Request $request) 
     { 
-        $penjualan = PenjualanModel::with('user'); 
+        if(auth()->user()->level->level_nama == 'Member'){
+            $penjualan = PenjualanModel::with('user')->where('pembeli', 'like', '%'. auth()->user()->nama.'%')->get(); 
+        }
+        else{
+            $penjualan = PenjualanModel::with('user'); 
+        }
 
-                //filter
-                if($request->penjualan_id){
-                    $penjualan->where('penjualan_id', $request->penjualan_id);
-                }
+        //filter
+        if($request->penjualan_id){
+            $penjualan->where('penjualan_id', $request->penjualan_id);
+        }
  
         return DataTables::of($penjualan) 
         ->addIndexColumn() // menambahkan kolom index / no urut (default nama kolom: DT_RowIndex) 
@@ -80,8 +87,9 @@ class PenjualanController extends Controller
             'breadcrumb' => $breadcrumb,
             'page' => $page,
             'barang' => $barang,
-            'user' => $user,
-            'activeMenu' => $activeMenu
+            'userTambah' => $user,
+            'activeMenu' => $activeMenu,
+            'user' => UserModel::all()
         ]);
     }
 
@@ -149,7 +157,9 @@ class PenjualanController extends Controller
             'page' => $page,
             'penjualan' => $penjualan,
             'barangJual'=> $barangJual,
-            'activeMenu' => $activeMenu]);
+            'activeMenu' => $activeMenu,
+            'user' => UserModel::all()
+        ]);
     }
 
     public function edit(string $id){
@@ -173,10 +183,11 @@ class PenjualanController extends Controller
             'breadcrumb' => $breadcrumb,
             'page' => $page,
             'penjualan' => $penjualan,
-            'user' => $user,
+            'userEdit' => $user,
             'detail'=> $detail,
             'barang' => $barang,
-            'activeMenu' => $activeMenu
+            'activeMenu' => $activeMenu,
+            'user' => UserModel::all()
         ]);
     }
 
@@ -244,5 +255,7 @@ class PenjualanController extends Controller
             // dd($th);
             return redirect('/penjualan')->with('error', 'Data penjualan gagal dihapus karena masih terdapat tabel lain yang terkait dengan data ini');
         }    }
+
+        
 }
 

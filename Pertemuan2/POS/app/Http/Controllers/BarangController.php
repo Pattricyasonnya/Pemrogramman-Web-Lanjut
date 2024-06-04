@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\BarangModel;
 use App\Models\KategoriModel;
+use App\Models\UserModel;
 use Faker\Core\Barcode;
 use Illuminate\Http\Request;
 use Yajra\DataTables\DataTables as DataTablesDataTables;
@@ -28,7 +29,9 @@ class BarangController extends Controller
             'breadcrumb' => $breadcrumb,
             'page' => $page,
             'kategori' => $kategori,
-            'activeMenu' => $activeMenu]);
+            'activeMenu' => $activeMenu,
+            'user' => UserModel::all()
+        ]);
     }
 
     // Ambil data barang dalam bentuk json untuk datatables 
@@ -74,7 +77,8 @@ class BarangController extends Controller
             'breadcrumb' => $breadcrumb,
             'page' => $page,
             'kategori' => $kategori,
-            'activeMenu' => $activeMenu
+            'activeMenu' => $activeMenu,
+            'user' => UserModel::all()
         ]);
     }
 
@@ -84,7 +88,7 @@ class BarangController extends Controller
             //barang_kode harus diisi, berupa string, minimal 3 karakter dan bernilai unik di table m_barang kolom barang_kode
             'barang_kode' => 'required|string|min:3|unique:m_barang,barang_kode',
             'barang_nama' => 'required|string|max:100',
-            'harga_jual' => 'required|integer'
+            'harga_jual' => 'required|integer|gt:harga_beli'
         ]);
 
         BarangModel::create([
@@ -117,7 +121,9 @@ class BarangController extends Controller
             'breadcrumb' => $breadcrumb,
             'page' => $page,
             'barang' => $barang,
-            'activeMenu' => $activeMenu]);
+            'activeMenu' => $activeMenu,
+            'user' => UserModel::all()
+        ]);
     }
 
     public function edit(string $id){
@@ -140,7 +146,9 @@ class BarangController extends Controller
             'page' => $page,
             'barang' => $barang,
             'kategori' => $kategori,
-            'activeMenu' => $activeMenu
+            'activeMenu' => $activeMenu,
+            'user' => UserModel::all()
+
         ]);
     }
 

@@ -3,7 +3,8 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>{{ config('app.name', 'PWL Laravel Started Code') }}</title>
+  <title>Serba Store</title>
+    {{-- {{ config('app.name', 'PWL Laravel Started Code') }} --}}
 
   <meta name="csrf-token" content="{{csrf_token()}}"> <!-- untuk mengirim token larafel CSRF pada setiap request ajax -->
 
@@ -35,7 +36,7 @@
     <!-- Brand Logo -->
     <a href="{{ url('/') }}" class="brand-link">
       <img src="{{ asset ('adminlte/dist/img/AdminLTELogo.png') }}" alt="AdminLTE Logo" class="brand-image img-circle elevation-3" style="opacity: .8">
-      <span class="brand-text font-weight-light">PWL - Started Code</span>
+      <span class="brand-text font-weight-light">SS - SERBA STORE</span>
     </a>
 
     <!-- Sidebar -->

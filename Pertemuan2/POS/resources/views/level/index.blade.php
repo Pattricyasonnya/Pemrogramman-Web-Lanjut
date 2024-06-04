@@ -24,7 +24,7 @@
               <option value="{{$item->level_id}}">{{$item->level_nama}}</option>
               @endforeach
             </select>
-            <small class="form-text text-muted">Nama Level</small>
+            <small class="form-text text-muted">Level Pengguna</small>
           </div>
         </div>
         <table class="table table-bordered table-striped table-hover table-sm" id="table_level"> 

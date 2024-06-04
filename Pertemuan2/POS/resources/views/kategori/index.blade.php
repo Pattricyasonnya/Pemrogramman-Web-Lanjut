@@ -75,7 +75,7 @@
           ] 
       }); 
       $('#kategori_id').on('change', function(){
-        dataLevel.ajax.reload();
+        dataKategori.ajax.reload();
       });
     }); 
   </script> 

@@ -23,8 +23,10 @@
                     </a> 
                   </li> 
                   {{-- Membuat halaman yang berbeda antara admin dan member --}}
+
                   {{-- auth user : mengecek siapa yang login  --}}
-                  @if (auth()->user()->level->level_nama!='Member')
+                  @if (auth()->user()->level->level_nama !='Member')
+
                   <li class="nav-header">Data Pengguna</li> 
                   <li class="nav-item"> 
                     <a href="{{ url('/level') }}" class="nav-link {{ ($activeMenu == 'level')? 
@@ -63,6 +65,8 @@
                       <p>Stok Barang</p> 
                     </a> 
                   </li> 
+
+                  @endif
                   <li class="nav-item"> 
                     <a href="{{ url('/penjualan') }}" class="nav-link {{ ($activeMenu == 
                         'penjualan')? 'active' : '' }} "> 
@@ -70,8 +74,15 @@
                                   <p>Transaksi Penjualan</p> 
                                 </a> 
                               </li>
-                  @endif
-                   
+
+                  {{-- <li class="nav-item"> 
+                    <a href="{{ url('/penjualan') }}" class="nav-link {{ ($activeMenu == 
+                        'penjualan')? 'active' : '' }} "> 
+                                  <i class="nav-icon fas fa-cash-register"></i> 
+                                  <p>Histori Transaksi</p> 
+                                </a> 
+                              </li> --}}
+
                   <li class="nav-item"> 
                     <a href="{{ route('logout') }}" class="nav-link {{ ($activeMenu == 
                         'logout')? 'active' : '' }} "> 

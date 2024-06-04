@@ -25,13 +25,14 @@ class StokController extends Controller
         ];
 
         $activeMenu = 'stok';
-        $kategori = KategoriModel::all();
+        $barang = BarangModel::all();
 
         return view('stok.index', 
         ['breadcrumb' => $breadcrumb,
         'page' => $page,
-        'kategori'=>$kategori,
-        'activeMenu' => $activeMenu
+        'barang'=>$barang,
+        'activeMenu' => $activeMenu,
+        'user' => UserModel::all()
     ]);
 
    
@@ -39,9 +40,14 @@ class StokController extends Controller
 
     public function list(Request $request)
     {
-        $stok = StokModel::with('barang.kategori');
 
-        
+        //filter
+        if($request->barang_id){
+            $stok = StokModel::with('barang.kategori')->where('barang_id', $request->barang_id)->get();
+        }else{
+            $stok = StokModel::with('barang.kategori')->get();
+        }
+
         return DataTables::of($stok)
         ->addIndexColumn()
         ->addColumn('aksi', function ($stok) {
@@ -79,9 +85,10 @@ class StokController extends Controller
         [
             'breadcrumb' => $breadcrumb, 
             'page' => $page, 
-            'user' => $user, 
+            'userTambah' => $user, 
             'barang' => $barang, 
-            'activeMenu' => $activeMenu
+            'activeMenu' => $activeMenu,
+            'user' => UserModel::all()
         ]);
     }
     //menampilkan halaman form edit stok
@@ -108,8 +115,9 @@ class StokController extends Controller
             'page' => $page, 
             'barang'=> $barang, 
             'stok' => $stok,
-            'user' => $user, 
-            'activeMenu' => $activeMenu
+            'userEdit' => $user, 
+            'activeMenu' => $activeMenu,
+            'user' => UserModel::all()
         ]);
     }
     //menampilkan detail stok
@@ -133,7 +141,8 @@ class StokController extends Controller
             'breadcrumb' => $breadcrumb, 
             'page' => $page, 
             'stok' => $stok, 
-            'activeMenu' => $activeMenu
+            'activeMenu' => $activeMenu,
+            'user' => UserModel::all()
         ]);
     }
     //menyimpan data stok baru
