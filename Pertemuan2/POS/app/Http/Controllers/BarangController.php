@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Models\BarangModel;
 use App\Models\KategoriModel;
 use App\Models\UserModel;
+use Carbon\Carbon;
 use Faker\Core\Barcode;
 use Illuminate\Http\Request;
 use Yajra\DataTables\DataTables as DataTablesDataTables;
@@ -37,7 +38,7 @@ class BarangController extends Controller
     // Ambil data barang dalam bentuk json untuk datatables 
     public function list(Request $request) 
     { 
-        $barangs = BarangModel::select('barang_id', 'barang_nama', 'kategori_id', 'harga_jual') 
+        $barangs = BarangModel::select('barang_id', 'barang_nama', 'barang_kode', 'kategori_id', 'harga_jual') 
                 ->with('kategori'); 
 
                 //filter
@@ -86,13 +87,19 @@ class BarangController extends Controller
     public function store(Request $request){
         $request->validate([
             //barang_kode harus diisi, berupa string, minimal 3 karakter dan bernilai unik di table m_barang kolom barang_kode
-            'barang_kode' => 'required|string|min:3|unique:m_barang,barang_kode',
+            // 'barang_kode' => 'required|string|min:3|unique:m_barang,barang_kode',
+            'kategori_id' => 'required',
             'barang_nama' => 'required|string|max:100',
+            'harga_beli' => 'required|integer',
             'harga_jual' => 'required|integer|gt:harga_beli'
         ]);
+        $kategori = KategoriModel::find($request->kategori_id);
+        $dateNow = Carbon::now()->format('d/m/Y');
+        $barangKategori = (BarangModel::where('kategori_id', $request->kategori_id)->count()) + 1;
+        $kodeBarang = $kategori->kategori_kode.'-'.$barangKategori.'-'.$dateNow;
 
         BarangModel::create([
-            'barang_kode'=> $request -> barang_kode,
+            'barang_kode'=> $kodeBarang,
             'barang_nama'=> $request -> barang_nama,
             'harga_beli' => $request -> harga_beli,
             'harga_jual' => $request -> harga_jual,
@@ -154,14 +161,26 @@ class BarangController extends Controller
 
     public function update(Request $request, string $id){
         $request->validate([
-            'barang_kode' => 'required|string|min:3|unique:m_barang,barang_kode,' .$id. ',barang_id',
+            // 'barang_kode' => 'required|string|min:3|unique:m_barang,barang_kode,' .$id. ',barang_id',
             'barang_nama' => 'required|string|max:100',
             'harga_jual' => 'required|integer'
         ]);
-
-        BarangModel::find($id)->update([
-            'barang_kode' => $request-> barang_kode,
+        $BarangLama = BarangModel::find($id);
+        if($BarangLama -> kategori_id != $request->kategori_id){
+            $kategori = KategoriModel::find($request->kategori_id);
+            $dateNow = Carbon::now()->format('d/m/Y');
+            $barangKategori = (BarangModel::where('kategori_id', $request->kategori_id)->count()) + 1;
+            $kodeBarang = $kategori->kategori_kode.'-'.$barangKategori.'-'.$dateNow;
+            
+        }else{
+            $kodeBarang = $BarangLama->barang_kode;
+        }
+        
+        $BarangLama->update([
+            'barang_kode' => $kodeBarang,
+            'kategori_id' => $request -> kategori_id,
             'barang_nama' => $request->barang_nama,
+            'harga_beli' => $request -> harga_beli,
             'harga_jual' =>$request -> harga_jual
         ]);
 

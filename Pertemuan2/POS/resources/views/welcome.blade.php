@@ -18,6 +18,7 @@
 <div class="chartWrapper">
   {!! $chart->container() !!}
 </div>
+@if (auth()->user()->level->level_nama =='Administrator' || auth()->user()->level->level_nama =='Manager')
 
 <div class="btnWrapper mb-2">
   <a href="{{route('PDF')}}" class="btn btn-danger mr-2">
@@ -28,6 +29,8 @@
   </a>
 </div>
 <div>
+
+
 <table class="table table-bordered table-striped table-hover table-sm" id="table_user"> 
   <thead> 
     <tr>
@@ -39,6 +42,7 @@
     </tr> 
   </thead> 
 </table> 
+@endif
 </div>
     
 @else

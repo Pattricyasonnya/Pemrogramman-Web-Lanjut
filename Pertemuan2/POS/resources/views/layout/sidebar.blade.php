@@ -28,6 +28,9 @@
                   @if (auth()->user()->level->level_nama !='Member')
 
                   <li class="nav-header">Data Pengguna</li> 
+
+                  @if(auth()->user()->level->level_nama == 'Administrator'|| auth()->user()->level->level_nama == 'Manager')
+
                   <li class="nav-item"> 
                     <a href="{{ url('/level') }}" class="nav-link {{ ($activeMenu == 'level')? 
             'active' : '' }} "> 
@@ -35,6 +38,10 @@
                       <p>Level User</p> 
                     </a> 
                   </li> 
+                  @endif
+
+                  @if(auth()->user()->level->level_nama == 'Administrator')
+
                   <li class="nav-item"> 
                     <a href="{{ url('/user') }}" class="nav-link {{ ($activeMenu == 'user')? 
             'active' : '' }}"> 
@@ -42,6 +49,7 @@
                       <p>Data User</p> 
                     </a> 
                   </li> 
+
                   <li class="nav-header">Data Barang</li> 
                   <li class="nav-item"> 
                     <a href="{{ url('/kategori') }}" class="nav-link {{ ($activeMenu == 
@@ -65,6 +73,7 @@
                       <p>Stok Barang</p> 
                     </a> 
                   </li> 
+                  @endif
 
                   @endif
                   <li class="nav-item"> 

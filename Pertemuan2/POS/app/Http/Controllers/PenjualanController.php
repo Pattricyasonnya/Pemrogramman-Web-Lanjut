@@ -8,6 +8,7 @@ use App\Models\PenjualanDetailModel;
 use App\Models\PenjualanModel;
 use App\Models\StokModel;
 use App\Models\UserModel;
+use Carbon\Carbon;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
 use Yajra\DataTables\Facades\DataTables;
@@ -99,17 +100,25 @@ class PenjualanController extends Controller
         $request->validate([
             //username harus diisi, berupa string, minimal 3 karakter dan bernilai unik di table m_user kolom username
             'barang_id' => 'required|array',
-            'user_id' => 'required|integer',
+            // 'user_id' => 'required|integer',
             'pembeli' => 'required|string',
-            'penjualan_kode' => 'required|min:3',
+            // 'penjualan_kode' => 'required|min:3',
             'penjualan_tanggal' => 'required|date'
         ]);
 
         $barang = BarangModel::all();
         DB::beginTransaction(); //tanda bahwa transaksi dimulai
 
+        $penjualanCount = PenjualanModel::count() + 1;
+        $penjualanKode = 'PJ'.'-'.$penjualanCount.'-'.Carbon::createFromDate($request->penjualan_tanggal)->format('d/m/Y');
+        $data = $request->all();
+        // nambah data ke array data penjualan
+        $data['penjualan_kode']=$penjualanKode;
+        // untuk mendapatkan data siapa yang sedang login
+        $data['user_id']=auth()->user()->user_id;
+
         //create penjualan
-        $penjualan = PenjualanModel::create($request->all());
+        $penjualan = PenjualanModel::create($data);
 
         //ambil data dari request yang ada di barang_id
         $barangLaku = $request->only('barang_id');

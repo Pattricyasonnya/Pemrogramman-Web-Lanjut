@@ -32,7 +32,7 @@
             @enderror 
           </div> 
         </div> 
-        <div class="form-group row"> 
+        {{-- <div class="form-group row"> 
             <label class="col-1 control-label col-form-label">Barang Kode</label> 
             <div class="col-11"> 
               <input type="text" class="form-control" id="barang_kode" name="barang_kode" value="{{ old('barang_kode') }}" required> 
@@ -40,7 +40,7 @@
                 <small class="form-text text-danger">{{ $message }}</small> 
               @enderror 
             </div> 
-          </div> 
+          </div>  --}}
         <div class="form-group row"> 
           <label class="col-1 control-label col-form-label">Harga Beli</label> 
           <div class="col-11"> 

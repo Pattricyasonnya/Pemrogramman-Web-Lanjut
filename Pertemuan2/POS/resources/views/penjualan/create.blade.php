@@ -34,7 +34,7 @@
           </select>
         </div>
       </div>
-      <div class="form-group row">
+      {{-- <div class="form-group row">
         <label class="col-1 control-label col-form-label">User</label>
         <div class="col-11">
           <select class="form-control" id="user_id" name="user_id" required>
@@ -48,7 +48,7 @@
           <small class="form-text text-danger">{{ $message }}</small>
           @enderror
         </div>
-      </div>
+      </div> --}}
       <div class="form-group row">
         <label class="col-1 control-label col-form-label">Nama Pembeli</label>
         <div class="col-11">
@@ -58,7 +58,7 @@
           @enderror
         </div>
       </div>
-      <div class="form-group row">
+      {{-- <div class="form-group row">
         <label class="col-1 control-label col-form-label">Kode Penjualan</label>
         <div class="col-11">
           <input type="text" class="form-control" id="penjualan_kode" name="penjualan_kode"
@@ -67,7 +67,7 @@
           <small class="form-text text-danger">{{ $message }}</small>
           @enderror
         </div>
-      </div>
+      </div> --}}
       <div class="form-group row">
         <label class="col-1 control-label col-form-label">Tanggal Penjualan</label>
         <div class="col-11">

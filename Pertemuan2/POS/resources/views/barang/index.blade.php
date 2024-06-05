@@ -33,6 +33,7 @@
                 <th>ID</th>
                 <th>Nama</th>
                 <th>Kategori Barang</th>
+                <th>Barang Kode</th>
                 <th>Harga Jual</th>
                 <th>Aksi</th>
             </tr> 
@@ -69,14 +70,15 @@
               orderable: true,    // orderable: true, jika ingin kolom ini bisa diurutkan 
               searchable: true    // searchable: true, jika ingin kolom ini bisa dicari 
             },
-            /*{ 
-              data: "barang_kode",                
+            
+            { 
+              data: "kategori.kategori_nama",                
               className: "", 
               orderable: true,    // orderable: true, jika ingin kolom ini bisa diurutkan 
               searchable: true    // searchable: true, jika ingin kolom ini bisa dicari 
-            },*/
+            },
             { 
-              data: "kategori.kategori_nama",                
+              data: "barang_kode",                
               className: "", 
               orderable: true,    // orderable: true, jika ingin kolom ini bisa diurutkan 
               searchable: true    // searchable: true, jika ingin kolom ini bisa dicari 
